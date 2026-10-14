@@ -36,16 +36,16 @@ export async function runApiSeed() {
 
   // 2. Parties
   const parties = [
-    { id: 'p0000000-0000-0000-0000-000000000001', business_id: business.id, party_name: 'Vertex Financial Services Ltd', party_type: 'customer', email: 'accounts@vertexfinance.example.com', phone: '+91 98401 11223', address: 'Tower B, Ramanujan IT City, Chennai', state: 'Tamil Nadu', gstin: '33AAACV9876K1Z1', is_sample: true },
-    { id: 'p0000000-0000-0000-0000-000000000002', business_id: business.id, party_name: 'Apex Logistics & Supply Chain', party_type: 'customer', email: 'billing@apexlogistics.example.com', phone: '+91 98402 33445', address: 'Ambattur Industrial Estate, Chennai', state: 'Tamil Nadu', gstin: '33BBBCA1234M1Z2', is_sample: true },
-    { id: 'p0000000-0000-0000-0000-000000000003', business_id: business.id, party_name: 'Kavitha Retail Ventures', party_type: 'customer', email: 'finance@kavitharetail.example.com', phone: '+91 98403 55667', address: 'Cross Cut Road, Gandhipuram, Coimbatore', state: 'Tamil Nadu', gstin: '33CCCCK5678P1Z3', is_sample: true },
-    { id: 'p0000000-0000-0000-0000-000000000004', business_id: business.id, party_name: 'Novus Healthcare Analytics', party_type: 'customer', email: 'invoices@novushealth.example.com', phone: '+91 98804 77889', address: 'Outer Ring Road, Bellandur, Bengaluru', state: 'Karnataka', gstin: '29DDDCN9012Q1Z4', is_sample: true },
-    { id: 'p0000000-0000-0000-0000-000000000005', business_id: business.id, party_name: 'Sahara Digital Payments Pvt Ltd', party_type: 'customer', email: 'payables@saharapay.example.com', phone: '+91 98205 99001', address: 'Bandra Kurla Complex, Mumbai', state: 'Maharashtra', gstin: '27EEECS3456R1Z5', is_sample: true },
-    { id: 'p0000000-0000-0000-0000-000000000006', business_id: business.id, party_name: 'Telangana Agri-Tech Innovations', party_type: 'customer', email: 'contact@agritech.example.com', phone: '+91 98496 12345', address: 'HITEC City, Madhapur, Hyderabad', state: 'Telangana', gstin: '36FFFCT7890S1Z6', is_sample: true },
-    { id: 'p0000000-0000-0000-0000-000000000007', business_id: business.id, party_name: 'CloudScale Infrastructure Services', party_type: 'supplier', email: 'billing@cloudscale.example.com', phone: '+91 98807 23456', address: 'Whitefield Industrial Area, Bengaluru', state: 'Karnataka', gstin: '29GGGCC4567T1Z7', is_sample: true },
-    { id: 'p0000000-0000-0000-0000-000000000008', business_id: business.id, party_name: 'CyberNet Hardware & Peripherals', party_type: 'supplier', email: 'orders@cybernet.example.com', phone: '+91 98408 34567', address: 'Ritchie Street, Mount Road, Chennai', state: 'Tamil Nadu', gstin: '33HHHCC8901U1Z8', is_sample: true },
-    { id: 'p0000000-0000-0000-0000-000000000009', business_id: business.id, party_name: 'Zenith Office Space & Facilities', party_type: 'supplier', email: 'leasing@zenithspaces.example.com', phone: '+91 98409 45678', address: 'OMR IT Corridor, Sholinganallur, Chennai', state: 'Tamil Nadu', gstin: '33IIIZZ2345V1Z9', is_sample: true },
-    { id: 'p0000000-0000-0000-0000-000000000010', business_id: business.id, party_name: 'Prism Audit & Compliance Associates', party_type: 'supplier', email: 'contact@prismaudit.example.com', phone: '+91 98110 56789', address: 'Barakhamba Road, Connaught Place, New Delhi', state: 'Delhi', gstin: '07JJJPA6789W1ZA', is_sample: true }
+    { id: 'c0000000-0000-0000-0000-000000000001', business_id: business.id, party_name: 'Vertex Financial Services Ltd', party_type: 'customer', email: 'accounts@vertexfinance.example.com', phone: '+91 98401 11223', address: 'Tower B, Ramanujan IT City, Chennai', state: 'Tamil Nadu', gstin: '33AAACV9876K1Z1', is_sample: true },
+    { id: 'c0000000-0000-0000-0000-000000000002', business_id: business.id, party_name: 'Apex Logistics & Supply Chain', party_type: 'customer', email: 'billing@apexlogistics.example.com', phone: '+91 98402 33445', address: 'Ambattur Industrial Estate, Chennai', state: 'Tamil Nadu', gstin: '33BBBCA1234M1Z2', is_sample: true },
+    { id: 'c0000000-0000-0000-0000-000000000003', business_id: business.id, party_name: 'Kavitha Retail Ventures', party_type: 'customer', email: 'finance@kavitharetail.example.com', phone: '+91 98403 55667', address: 'Cross Cut Road, Gandhipuram, Coimbatore', state: 'Tamil Nadu', gstin: '33CCCCK5678P1Z3', is_sample: true },
+    { id: 'c0000000-0000-0000-0000-000000000004', business_id: business.id, party_name: 'Novus Healthcare Analytics', party_type: 'customer', email: 'invoices@novushealth.example.com', phone: '+91 98804 77889', address: 'Outer Ring Road, Bellandur, Bengaluru', state: 'Karnataka', gstin: '29DDDCN9012Q1Z4', is_sample: true },
+    { id: 'c0000000-0000-0000-0000-000000000005', business_id: business.id, party_name: 'Sahara Digital Payments Pvt Ltd', party_type: 'customer', email: 'payables@saharapay.example.com', phone: '+91 98205 99001', address: 'Bandra Kurla Complex, Mumbai', state: 'Maharashtra', gstin: '27EEECS3456R1Z5', is_sample: true },
+    { id: 'c0000000-0000-0000-0000-000000000006', business_id: business.id, party_name: 'Telangana Agri-Tech Innovations', party_type: 'customer', email: 'contact@agritech.example.com', phone: '+91 98496 12345', address: 'HITEC City, Madhapur, Hyderabad', state: 'Telangana', gstin: '36FFFCT7890S1Z6', is_sample: true },
+    { id: 'c0000000-0000-0000-0000-000000000007', business_id: business.id, party_name: 'CloudScale Infrastructure Services', party_type: 'supplier', email: 'billing@cloudscale.example.com', phone: '+91 98807 23456', address: 'Whitefield Industrial Area, Bengaluru', state: 'Karnataka', gstin: '29GGGCC4567T1Z7', is_sample: true },
+    { id: 'c0000000-0000-0000-0000-000000000008', business_id: business.id, party_name: 'CyberNet Hardware & Peripherals', party_type: 'supplier', email: 'orders@cybernet.example.com', phone: '+91 98408 34567', address: 'Ritchie Street, Mount Road, Chennai', state: 'Tamil Nadu', gstin: '33HHHCC8901U1Z8', is_sample: true },
+    { id: 'c0000000-0000-0000-0000-000000000009', business_id: business.id, party_name: 'Zenith Office Space & Facilities', party_type: 'supplier', email: 'leasing@zenithspaces.example.com', phone: '+91 98409 45678', address: 'OMR IT Corridor, Sholinganallur, Chennai', state: 'Tamil Nadu', gstin: '33IIIZZ2345V1Z9', is_sample: true },
+    { id: 'c0000000-0000-0000-0000-000000000010', business_id: business.id, party_name: 'Prism Audit & Compliance Associates', party_type: 'supplier', email: 'contact@prismaudit.example.com', phone: '+91 98110 56789', address: 'Barakhamba Road, Connaught Place, New Delhi', state: 'Delhi', gstin: '07JJJPA6789W1ZA', is_sample: true }
   ];
 
   const { error: pError } = await supabase.from('parties').upsert(parties);
@@ -55,7 +55,7 @@ export async function runApiSeed() {
   // 3. Tax Schemes
   const schemes = [
     {
-      id: 's0000000-0000-0000-0000-000000000001',
+      id: 'd0000000-0000-0000-0000-000000000001',
       scheme_code: 'SEC_80IAC',
       scheme_name: 'Section 80-IAC Tax Holiday for Eligible Startups',
       administering_authority: 'DPIIT & CBDT',
@@ -72,7 +72,7 @@ export async function runApiSeed() {
       is_sample: true
     },
     {
-      id: 's0000000-0000-0000-0000-000000000002',
+      id: 'd0000000-0000-0000-0000-000000000002',
       scheme_code: 'SEC_44AD',
       scheme_name: 'Section 44AD Presumptive Taxation for Small Businesses',
       administering_authority: 'Income Tax Department (CBDT)',
@@ -89,7 +89,7 @@ export async function runApiSeed() {
       is_sample: true
     },
     {
-      id: 's0000000-0000-0000-0000-000000000003',
+      id: 'd0000000-0000-0000-0000-000000000003',
       scheme_code: 'SEC_44ADA',
       scheme_name: 'Section 44ADA Presumptive Taxation for Professionals',
       administering_authority: 'Income Tax Department (CBDT)',
@@ -106,7 +106,7 @@ export async function runApiSeed() {
       is_sample: true
     },
     {
-      id: 's0000000-0000-0000-0000-000000000004',
+      id: 'd0000000-0000-0000-0000-000000000004',
       scheme_code: 'GST_COMPOSITION',
       scheme_name: 'GST Composition Scheme under Section 10',
       administering_authority: 'CBIC',
@@ -123,7 +123,7 @@ export async function runApiSeed() {
       is_sample: true
     },
     {
-      id: 's0000000-0000-0000-0000-000000000005',
+      id: 'd0000000-0000-0000-0000-000000000005',
       scheme_code: 'UDYAM_MSME',
       scheme_name: 'Udyam Registration & MSMED Act Protections',
       administering_authority: 'Ministry of MSME',
@@ -140,7 +140,7 @@ export async function runApiSeed() {
       is_sample: true
     },
     {
-      id: 's0000000-0000-0000-0000-000000000006',
+      id: 'd0000000-0000-0000-0000-000000000006',
       scheme_code: 'CGTMSE_SCHEME',
       scheme_name: 'Credit Guarantee Scheme for Micro & Small Enterprises (CGTMSE)',
       administering_authority: 'SIDBI & Ministry of MSME',
@@ -157,7 +157,7 @@ export async function runApiSeed() {
       is_sample: true
     },
     {
-      id: 's0000000-0000-0000-0000-000000000007',
+      id: 'd0000000-0000-0000-0000-000000000007',
       scheme_code: 'PMMY_MUDRA',
       scheme_name: 'Pradhan Mantri MUDRA Yojana (PMMY)',
       administering_authority: 'NCGTC / Ministry of Finance',
@@ -174,7 +174,7 @@ export async function runApiSeed() {
       is_sample: true
     },
     {
-      id: 's0000000-0000-0000-0000-000000000008',
+      id: 'd0000000-0000-0000-0000-000000000008',
       scheme_code: 'SISFS_SEED_FUND',
       scheme_name: 'Startup India Seed Fund Scheme (SISFS)',
       administering_authority: 'DPIIT, Ministry of Commerce and Industry',
@@ -191,7 +191,7 @@ export async function runApiSeed() {
       is_sample: true
     },
     {
-      id: 's0000000-0000-0000-0000-000000000009',
+      id: 'd0000000-0000-0000-0000-000000000009',
       scheme_code: 'TANSEED_STARTUPTN',
       scheme_name: 'Tamil Nadu Startup Seed Grant Fund (TANSEED)',
       administering_authority: 'StartupTN (Govt of Tamil Nadu)',
@@ -208,7 +208,7 @@ export async function runApiSeed() {
       is_sample: true
     },
     {
-      id: 's0000000-0000-0000-0000-000000000010',
+      id: 'd0000000-0000-0000-0000-000000000010',
       scheme_code: 'DPIIT_RECOGNITION',
       scheme_name: 'DPIIT Startup India Certificate of Recognition',
       administering_authority: 'DPIIT',

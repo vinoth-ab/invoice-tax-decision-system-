@@ -54,17 +54,17 @@ ON CONFLICT (id) DO UPDATE SET
 -- ------------------------------------------------------------------------------
 INSERT INTO public.parties (id, business_id, party_name, party_type, email, phone, address, state, gstin, is_sample) VALUES
 -- Customers
-('p0000000-0000-0000-0000-000000000001', 'b0000000-0000-0000-0000-000000000001', 'Vertex Financial Services Ltd', 'customer', 'accounts@vertexfinance.example.com', '+91 98401 11223', 'Tower B, Ramanujan IT City, Chennai', 'Tamil Nadu', '33AAACV9876K1Z1', true),
-('p0000000-0000-0000-0000-000000000002', 'b0000000-0000-0000-0000-000000000002', 'Apex Logistics & Supply Chain', 'customer', 'billing@apexlogistics.example.com', '+91 98402 33445', 'Ambattur Industrial Estate, Chennai', 'Tamil Nadu', '33BBBCA1234M1Z2', true),
-('p0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000001', 'Kavitha Retail Ventures', 'customer', 'finance@kavitharetail.example.com', '+91 98403 55667', 'Cross Cut Road, Gandhipuram, Coimbatore', 'Tamil Nadu', '33CCCCK5678P1Z3', true),
-('p0000000-0000-0000-0000-000000000004', 'b0000000-0000-0000-0000-000000000001', 'Novus Healthcare Analytics', 'customer', 'invoices@novushealth.example.com', '+91 98804 77889', 'Outer Ring Road, Bellandur, Bengaluru', 'Karnataka', '29DDDCN9012Q1Z4', true),
-('p0000000-0000-0000-0000-000000000005', 'b0000000-0000-0000-0000-000000000001', 'Sahara Digital Payments Pvt Ltd', 'customer', 'payables@saharapay.example.com', '+91 98205 99001', 'Bandra Kurla Complex, Mumbai', 'Maharashtra', '27EEECS3456R1Z5', true),
-('p0000000-0000-0000-0000-000000000006', 'b0000000-0000-0000-0000-000000000001', 'Telangana Agri-Tech Innovations', 'customer', 'contact@agritech.example.com', '+91 98496 12345', 'HITEC City, Madhapur, Hyderabad', 'Telangana', '36FFFCT7890S1Z6', true),
+('c0000000-0000-0000-0000-000000000001', 'b0000000-0000-0000-0000-000000000001', 'Vertex Financial Services Ltd', 'customer', 'accounts@vertexfinance.example.com', '+91 98401 11223', 'Tower B, Ramanujan IT City, Chennai', 'Tamil Nadu', '33AAACV9876K1Z1', true),
+('c0000000-0000-0000-0000-000000000002', 'b0000000-0000-0000-0000-000000000001', 'Apex Logistics & Supply Chain', 'customer', 'billing@apexlogistics.example.com', '+91 98402 33445', 'Ambattur Industrial Estate, Chennai', 'Tamil Nadu', '33BBBCA1234M1Z2', true),
+('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000001', 'Kavitha Retail Ventures', 'customer', 'finance@kavitharetail.example.com', '+91 98403 55667', 'Cross Cut Road, Gandhipuram, Coimbatore', 'Tamil Nadu', '33CCCCK5678P1Z3', true),
+('c0000000-0000-0000-0000-000000000004', 'b0000000-0000-0000-0000-000000000001', 'Novus Healthcare Analytics', 'customer', 'invoices@novushealth.example.com', '+91 98804 77889', 'Outer Ring Road, Bellandur, Bengaluru', 'Karnataka', '29DDDCN9012Q1Z4', true),
+('c0000000-0000-0000-0000-000000000005', 'b0000000-0000-0000-0000-000000000001', 'Sahara Digital Payments Pvt Ltd', 'customer', 'payables@saharapay.example.com', '+91 98205 99001', 'Bandra Kurla Complex, Mumbai', 'Maharashtra', '27EEECS3456R1Z5', true),
+('c0000000-0000-0000-0000-000000000006', 'b0000000-0000-0000-0000-000000000001', 'Telangana Agri-Tech Innovations', 'customer', 'contact@agritech.example.com', '+91 98496 12345', 'HITEC City, Madhapur, Hyderabad', 'Telangana', '36FFFCT7890S1Z6', true),
 -- Suppliers
-('p0000000-0000-0000-0000-000000000007', 'b0000000-0000-0000-0000-000000000001', 'CloudScale Infrastructure Services', 'supplier', 'billing@cloudscale.example.com', '+91 98807 23456', 'Whitefield Industrial Area, Bengaluru', 'Karnataka', '29GGGCC4567T1Z7', true),
-('p0000000-0000-0000-0000-000000000008', 'b0000000-0000-0000-0000-000000000001', 'CyberNet Hardware & Peripherals', 'supplier', 'orders@cybernet.example.com', '+91 98408 34567', 'Ritchie Street, Mount Road, Chennai', 'Tamil Nadu', '33HHHCC8901U1Z8', true),
-('p0000000-0000-0000-0000-000000000009', 'b0000000-0000-0000-0000-000000000001', 'Zenith Office Space & Facilities', 'supplier', 'leasing@zenithspaces.example.com', '+91 98409 45678', 'OMR IT Corridor, Sholinganallur, Chennai', 'Tamil Nadu', '33IIIZZ2345V1Z9', true),
-('p0000000-0000-0000-0000-000000000010', 'b0000000-0000-0000-0000-000000000001', 'Prism Audit & Compliance Associates', 'supplier', 'contact@prismaudit.example.com', '+91 98110 56789', 'Barakhamba Road, Connaught Place, New Delhi', 'Delhi', '07JJJPA6789W1ZA', true)
+('c0000000-0000-0000-0000-000000000007', 'b0000000-0000-0000-0000-000000000001', 'CloudScale Infrastructure Services', 'supplier', 'billing@cloudscale.example.com', '+91 98807 23456', 'Whitefield Industrial Area, Bengaluru', 'Karnataka', '29GGGCC4567T1Z7', true),
+('c0000000-0000-0000-0000-000000000008', 'b0000000-0000-0000-0000-000000000001', 'CyberNet Hardware & Peripherals', 'supplier', 'orders@cybernet.example.com', '+91 98408 34567', 'Ritchie Street, Mount Road, Chennai', 'Tamil Nadu', '33HHHCC8901U1Z8', true),
+('c0000000-0000-0000-0000-000000000009', 'b0000000-0000-0000-0000-000000000001', 'Zenith Office Space & Facilities', 'supplier', 'leasing@zenithspaces.example.com', '+91 98409 45678', 'OMR IT Corridor, Sholinganallur, Chennai', 'Tamil Nadu', '33IIIZZ2345V1Z9', true),
+('c0000000-0000-0000-0000-000000000010', 'b0000000-0000-0000-0000-000000000001', 'Prism Audit & Compliance Associates', 'supplier', 'contact@prismaudit.example.com', '+91 98110 56789', 'Barakhamba Road, Connaught Place, New Delhi', 'Delhi', '07JJJPA6789W1ZA', true)
 ON CONFLICT (id) DO UPDATE SET
     party_name = EXCLUDED.party_name,
     party_type = EXCLUDED.party_type,
@@ -82,7 +82,7 @@ INSERT INTO public.tax_schemes (
     last_verified_at, verification_status, is_active, is_sample
 ) VALUES
 (
-    's0000000-0000-0000-0000-000000000001',
+    'd0000000-0000-0000-0000-000000000001',
     'SEC_80IAC',
     'Section 80-IAC Tax Holiday for Eligible Startups',
     'Department for Promotion of Industry and Internal Trade (DPIIT) & CBDT',
@@ -102,7 +102,7 @@ INSERT INTO public.tax_schemes (
     true
 ),
 (
-    's0000000-0000-0000-0000-000000000002',
+    'd0000000-0000-0000-0000-000000000002',
     'SEC_44AD',
     'Section 44AD Presumptive Taxation for Small Businesses',
     'Income Tax Department (Central Board of Direct Taxes)',
@@ -122,7 +122,7 @@ INSERT INTO public.tax_schemes (
     true
 ),
 (
-    's0000000-0000-0000-0000-000000000003',
+    'd0000000-0000-0000-0000-000000000003',
     'SEC_44ADA',
     'Section 44ADA Presumptive Taxation for Professionals',
     'Income Tax Department (Central Board of Direct Taxes)',
@@ -142,7 +142,7 @@ INSERT INTO public.tax_schemes (
     true
 ),
 (
-    's0000000-0000-0000-0000-000000000004',
+    'd0000000-0000-0000-0000-000000000004',
     'GST_COMPOSITION',
     'GST Composition Scheme under Section 10',
     'Central Board of Indirect Taxes and Customs (CBIC)',
@@ -162,7 +162,7 @@ INSERT INTO public.tax_schemes (
     true
 ),
 (
-    's0000000-0000-0000-0000-000000000005',
+    'd0000000-0000-0000-0000-000000000005',
     'UDYAM_MSME',
     'Udyam Registration and MSMED Act Protections',
     'Ministry of Micro, Small and Medium Enterprises',
@@ -182,7 +182,7 @@ INSERT INTO public.tax_schemes (
     true
 ),
 (
-    's0000000-0000-0000-0000-000000000006',
+    'd0000000-0000-0000-0000-000000000006',
     'CGTMSE_SCHEME',
     'Credit Guarantee Scheme for Micro and Small Enterprises (CGTMSE)',
     'Credit Guarantee Fund Trust for Micro and Small Enterprises (SIDBI & Ministry of MSME)',
@@ -202,7 +202,7 @@ INSERT INTO public.tax_schemes (
     true
 ),
 (
-    's0000000-0000-0000-0000-000000000007',
+    'd0000000-0000-0000-0000-000000000007',
     'PMMY_MUDRA',
     'Pradhan Mantri MUDRA Yojana (PMMY)',
     'National Credit Guarantee Trustee Company / Ministry of Finance',
@@ -222,7 +222,7 @@ INSERT INTO public.tax_schemes (
     true
 ),
 (
-    's0000000-0000-0000-0000-000000000008',
+    'd0000000-0000-0000-0000-000000000008',
     'SISFS_SEED_FUND',
     'Startup India Seed Fund Scheme (SISFS)',
     'DPIIT, Ministry of Commerce and Industry',
@@ -242,7 +242,7 @@ INSERT INTO public.tax_schemes (
     true
 ),
 (
-    's0000000-0000-0000-0000-000000000009',
+    'd0000000-0000-0000-0000-000000000009',
     'TANSEED_STARTUPTN',
     'Tamil Nadu Startup Seed Grant Fund (TANSEED)',
     'Tamil Nadu Startup and Innovation Mission (StartupTN)',
@@ -262,7 +262,7 @@ INSERT INTO public.tax_schemes (
     true
 ),
 (
-    's0000000-0000-0000-0000-000000000010',
+    'd0000000-0000-0000-0000-000000000010',
     'DPIIT_RECOGNITION',
     'DPIIT Startup India Certificate of Recognition',
     'Department for Promotion of Industry and Internal Trade',
@@ -310,66 +310,66 @@ INSERT INTO public.invoices (
     payment_status, notes, document_path, is_sample
 ) VALUES
 -- April 2024
-('inv00000-0000-0000-0000-000000000001', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000001', 'INV-2024-001', 'sales', '2024-04-10', '2024-05-10', '2024-02025', '33-Tamil Nadu', 250000.00, 0.00, 250000.00, 22500.00, 22500.00, 0.00, 0.00, 295000.00, 295000.00, 'paid', 'Monthly enterprise core software engineering sprint', NULL, true),
-('inv00000-0000-0000-0000-000000000002', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000007', 'BILL-2024-04-01', 'purchase', '2024-04-12', '2024-05-12', '2024-2025', '29-Karnataka', 65000.00, 0.00, 65000.00, 0.00, 0.00, 11700.00, 0.00, 76700.00, 76700.00, 'paid', 'Cloud instances, Kubernetes cluster hosting & object storage', NULL, true),
-('inv00000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000004', 'INV-2024-002', 'sales', '2024-04-20', '2024-05-20', '2024-2025', '29-Karnataka', 420000.00, 20000.00, 400000.00, 0.00, 0.00, 72000.00, 0.00, 472000.00, 472000.00, 'paid', 'Inter-state healthcare analytics telemetry pipeline integration', NULL, true),
-('inv00000-0000-0000-0000-000000000004', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000009', 'BILL-2024-04-02', 'purchase', '2024-04-25', '2024-05-25', '2024-2025', '33-Tamil Nadu', 120000.00, 0.00, 120000.00, 10800.00, 10800.00, 0.00, 0.00, 141600.00, 141600.00, 'paid', 'TIDEL Park office workstation leasing & maintenance charges', NULL, true),
+('e0000000-0000-0000-0000-000000000001', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000001', 'INV-2024-001', 'sales', '2024-04-10', '2024-05-10', '2024-02025', '33-Tamil Nadu', 250000.00, 0.00, 250000.00, 22500.00, 22500.00, 0.00, 0.00, 295000.00, 295000.00, 'paid', 'Monthly enterprise core software engineering sprint', NULL, true),
+('e0000000-0000-0000-0000-000000000002', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000007', 'BILL-2024-04-01', 'purchase', '2024-04-12', '2024-05-12', '2024-2025', '29-Karnataka', 65000.00, 0.00, 65000.00, 0.00, 0.00, 11700.00, 0.00, 76700.00, 76700.00, 'paid', 'Cloud instances, Kubernetes cluster hosting & object storage', NULL, true),
+('e0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000004', 'INV-2024-002', 'sales', '2024-04-20', '2024-05-20', '2024-2025', '29-Karnataka', 420000.00, 20000.00, 400000.00, 0.00, 0.00, 72000.00, 0.00, 472000.00, 472000.00, 'paid', 'Inter-state healthcare analytics telemetry pipeline integration', NULL, true),
+('e0000000-0000-0000-0000-000000000004', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000009', 'BILL-2024-04-02', 'purchase', '2024-04-25', '2024-05-25', '2024-2025', '33-Tamil Nadu', 120000.00, 0.00, 120000.00, 10800.00, 10800.00, 0.00, 0.00, 141600.00, 141600.00, 'paid', 'TIDEL Park office workstation leasing & maintenance charges', NULL, true),
 
 -- May 2024
-('inv00000-0000-0000-0000-000000000005', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000002', 'INV-2024-003', 'sales', '2024-05-08', '2024-06-08', '2024-2025', '33-Tamil Nadu', 310000.00, 10000.00, 300000.00, 27000.00, 27000.00, 0.00, 0.00, 354000.00, 354000.00, 'paid', 'Logistics dispatch routing optimization software suite', NULL, true),
-('inv00000-0000-0000-0000-000000000006', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000005', 'INV-2024-004', 'sales', '2024-05-18', '2024-06-18', '2024-2025', '27-Maharashtra', 550000.00, 0.00, 550000.00, 0.00, 0.00, 99000.00, 0.00, 649000.00, 649000.00, 'paid', 'Fintech payment reconciliation gateway licensing', NULL, true),
-('inv00000-0000-0000-0000-000000000007', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000008', 'BILL-2024-05-01', 'purchase', '2024-05-22', '2024-06-22', '2024-2025', '33-Tamil Nadu', 180000.00, 0.00, 180000.00, 16200.00, 16200.00, 0.00, 0.00, 212400.00, 212400.00, 'paid', 'Developer laptops and 4K displays procured locally', NULL, true),
+('e0000000-0000-0000-0000-000000000005', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000002', 'INV-2024-003', 'sales', '2024-05-08', '2024-06-08', '2024-2025', '33-Tamil Nadu', 310000.00, 10000.00, 300000.00, 27000.00, 27000.00, 0.00, 0.00, 354000.00, 354000.00, 'paid', 'Logistics dispatch routing optimization software suite', NULL, true),
+('e0000000-0000-0000-0000-000000000006', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000005', 'INV-2024-004', 'sales', '2024-05-18', '2024-06-18', '2024-2025', '27-Maharashtra', 550000.00, 0.00, 550000.00, 0.00, 0.00, 99000.00, 0.00, 649000.00, 649000.00, 'paid', 'Fintech payment reconciliation gateway licensing', NULL, true),
+('e0000000-0000-0000-0000-000000000007', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000008', 'BILL-2024-05-01', 'purchase', '2024-05-22', '2024-06-22', '2024-2025', '33-Tamil Nadu', 180000.00, 0.00, 180000.00, 16200.00, 16200.00, 0.00, 0.00, 212400.00, 212400.00, 'paid', 'Developer laptops and 4K displays procured locally', NULL, true),
 
 -- June 2024
-('inv00000-0000-0000-0000-000000000008', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000003', 'INV-2024-005', 'sales', '2024-06-05', '2024-07-05', '2024-2025', '33-Tamil Nadu', 150000.00, 0.00, 150000.00, 9000.00, 9000.00, 0.00, 0.00, 168000.00, 168000.00, 'paid', 'Inventory barcode scanning application module (12% tax rate tier)', NULL, true),
-('inv00000-0000-0000-0000-000000000009', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000006', 'INV-2024-006', 'sales', '2024-06-19', '2024-07-19', '2024-2025', '36-Telangana', 380000.00, 0.00, 380000.00, 0.00, 0.00, 68400.00, 0.00, 448400.00, 448400.00, 'paid', 'Agri-analytics drone imagery pipeline integration', NULL, true),
-('inv00000-0000-0000-0000-000000000010', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000010', 'BILL-2024-06-01', 'purchase', '2024-06-25', '2024-07-25', '2024-2025', '07-Delhi', 80000.00, 0.00, 80000.00, 0.00, 0.00, 14400.00, 0.00, 94400.00, 94400.00, 'paid', 'Statutory audit & GST quarterly filing review charges', NULL, true),
+('e0000000-0000-0000-0000-000000000008', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000003', 'INV-2024-005', 'sales', '2024-06-05', '2024-07-05', '2024-2025', '33-Tamil Nadu', 150000.00, 0.00, 150000.00, 9000.00, 9000.00, 0.00, 0.00, 168000.00, 168000.00, 'paid', 'Inventory barcode scanning application module (12% tax rate tier)', NULL, true),
+('e0000000-0000-0000-0000-000000000009', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000006', 'INV-2024-006', 'sales', '2024-06-19', '2024-07-19', '2024-2025', '36-Telangana', 380000.00, 0.00, 380000.00, 0.00, 0.00, 68400.00, 0.00, 448400.00, 448400.00, 'paid', 'Agri-analytics drone imagery pipeline integration', NULL, true),
+('e0000000-0000-0000-0000-000000000010', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000010', 'BILL-2024-06-01', 'purchase', '2024-06-25', '2024-07-25', '2024-2025', '07-Delhi', 80000.00, 0.00, 80000.00, 0.00, 0.00, 14400.00, 0.00, 94400.00, 94400.00, 'paid', 'Statutory audit & GST quarterly filing review charges', NULL, true),
 
 -- July 2024
-('inv00000-0000-0000-0000-000000000011', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000001', 'INV-2024-007', 'sales', '2024-07-02', '2024-08-02', '2024-2025', '33-Tamil Nadu', 480000.00, 30000.00, 450000.00, 40500.00, 40500.00, 0.00, 0.00, 531000.00, 531000.00, 'paid', 'Quarterly backend modernization & algorithmic security upgrade', NULL, true),
-('inv00000-0000-0000-0000-000000000012', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000007', 'BILL-2024-07-01', 'purchase', '2024-07-15', '2024-08-15', '2024-2025', '29-Karnataka', 95000.00, 0.00, 95000.00, 0.00, 0.00, 17100.00, 0.00, 112100.00, 112100.00, 'paid', 'Expanded GPU inference server capacity for AI pilot', NULL, true),
-('inv00000-0000-0000-0000-000000000013', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000004', 'INV-2024-008', 'sales', '2024-07-28', '2024-08-28', '2024-2025', '29-Karnataka', 360000.00, 0.00, 360000.00, 0.00, 0.00, 64800.00, 0.00, 424800.00, 424800.00, 'paid', 'Diagnostic lab result integration engine license', NULL, true),
+('e0000000-0000-0000-0000-000000000011', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000001', 'INV-2024-007', 'sales', '2024-07-02', '2024-08-02', '2024-2025', '33-Tamil Nadu', 480000.00, 30000.00, 450000.00, 40500.00, 40500.00, 0.00, 0.00, 531000.00, 531000.00, 'paid', 'Quarterly backend modernization & algorithmic security upgrade', NULL, true),
+('e0000000-0000-0000-0000-000000000012', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000007', 'BILL-2024-07-01', 'purchase', '2024-07-15', '2024-08-15', '2024-2025', '29-Karnataka', 95000.00, 0.00, 95000.00, 0.00, 0.00, 17100.00, 0.00, 112100.00, 112100.00, 'paid', 'Expanded GPU inference server capacity for AI pilot', NULL, true),
+('e0000000-0000-0000-0000-000000000013', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000004', 'INV-2024-008', 'sales', '2024-07-28', '2024-08-28', '2024-2025', '29-Karnataka', 360000.00, 0.00, 360000.00, 0.00, 0.00, 64800.00, 0.00, 424800.00, 424800.00, 'paid', 'Diagnostic lab result integration engine license', NULL, true),
 
 -- August 2024
-('inv00000-0000-0000-0000-000000000014', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000002', 'INV-2024-009', 'sales', '2024-08-11', '2024-09-11', '2024-2025', '33-Tamil Nadu', 290000.00, 0.00, 290000.00, 26100.00, 26100.00, 0.00, 0.00, 342200.00, 342200.00, 'paid', 'Fleet telematics data ingestion microservices', NULL, true),
-('inv00000-0000-0000-0000-000000000015', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000005', 'INV-2024-010', 'sales', '2024-08-22', '2024-09-22', '2024-2025', '27-Maharashtra', 620000.00, 20000.00, 600000.00, 0.00, 0.00, 108000.00, 0.00, 708000.00, 708000.00, 'paid', 'Fraud detection rule engine deployment', NULL, true),
-('inv00000-0000-0000-0000-000000000016', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000008', 'BILL-2024-08-01', 'purchase', '2024-08-29', '2024-09-29', '2024-2025', '33-Tamil Nadu', 75000.00, 0.00, 75000.00, 10500.00, 10500.00, 0.00, 0.00, 96000.00, 96000.00, 'paid', 'High-speed managed enterprise network switches (28% GST illustrative tier)', NULL, true),
+('e0000000-0000-0000-0000-000000000014', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000002', 'INV-2024-009', 'sales', '2024-08-11', '2024-09-11', '2024-2025', '33-Tamil Nadu', 290000.00, 0.00, 290000.00, 26100.00, 26100.00, 0.00, 0.00, 342200.00, 342200.00, 'paid', 'Fleet telematics data ingestion microservices', NULL, true),
+('e0000000-0000-0000-0000-000000000015', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000005', 'INV-2024-010', 'sales', '2024-08-22', '2024-09-22', '2024-2025', '27-Maharashtra', 620000.00, 20000.00, 600000.00, 0.00, 0.00, 108000.00, 0.00, 708000.00, 708000.00, 'paid', 'Fraud detection rule engine deployment', NULL, true),
+('e0000000-0000-0000-0000-000000000016', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000008', 'BILL-2024-08-01', 'purchase', '2024-08-29', '2024-09-29', '2024-2025', '33-Tamil Nadu', 75000.00, 0.00, 75000.00, 10500.00, 10500.00, 0.00, 0.00, 96000.00, 96000.00, 'paid', 'High-speed managed enterprise network switches (28% GST illustrative tier)', NULL, true),
 
 -- September 2024
-('inv00000-0000-0000-0000-000000000017', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000003', 'INV-2024-011', 'sales', '2024-09-04', '2024-10-04', '2024-2025', '33-Tamil Nadu', 180000.00, 0.00, 180000.00, 16200.00, 16200.00, 0.00, 0.00, 212400.00, 212400.00, 'paid', 'Point-of-sale customer loyalty API service', NULL, true),
-('inv00000-0000-0000-0000-000000000018', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000006', 'INV-2024-012', 'sales', '2024-09-17', '2024-10-17', '2024-2025', '36-Telangana', 410000.00, 10000.00, 400000.00, 0.00, 0.00, 72000.00, 0.00, 472000.00, 472000.00, 'paid', 'Warehouse grain sensor IoT monitoring software', NULL, true),
-('inv00000-0000-0000-0000-000000000019', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000009', 'BILL-2024-09-01', 'purchase', '2024-09-24', '2024-10-24', '2024-2025', '33-Tamil Nadu', 125000.00, 0.00, 125000.00, 11250.00, 11250.00, 0.00, 0.00, 147500.00, 147500.00, 'paid', 'Q2 Office space facility and fiber internet charges', NULL, true),
+('e0000000-0000-0000-0000-000000000017', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000003', 'INV-2024-011', 'sales', '2024-09-04', '2024-10-04', '2024-2025', '33-Tamil Nadu', 180000.00, 0.00, 180000.00, 16200.00, 16200.00, 0.00, 0.00, 212400.00, 212400.00, 'paid', 'Point-of-sale customer loyalty API service', NULL, true),
+('e0000000-0000-0000-0000-000000000018', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000006', 'INV-2024-012', 'sales', '2024-09-17', '2024-10-17', '2024-2025', '36-Telangana', 410000.00, 10000.00, 400000.00, 0.00, 0.00, 72000.00, 0.00, 472000.00, 472000.00, 'paid', 'Warehouse grain sensor IoT monitoring software', NULL, true),
+('e0000000-0000-0000-0000-000000000019', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000009', 'BILL-2024-09-01', 'purchase', '2024-09-24', '2024-10-24', '2024-2025', '33-Tamil Nadu', 125000.00, 0.00, 125000.00, 11250.00, 11250.00, 0.00, 0.00, 147500.00, 147500.00, 'paid', 'Q2 Office space facility and fiber internet charges', NULL, true),
 
 -- October 2024
-('inv00000-0000-0000-0000-000000000020', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000001', 'INV-2024-013', 'sales', '2024-10-09', '2024-11-09', '2024-2025', '33-Tamil Nadu', 520000.00, 20000.00, 500000.00, 45000.00, 45000.00, 0.00, 0.00, 590000.00, 590000.00, 'paid', 'Banking core ledger synchronization architecture', NULL, true),
-('inv00000-0000-0000-0000-000000000021', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000007', 'BILL-2024-10-01', 'purchase', '2024-10-18', '2024-11-18', '2024-2025', '29-Karnataka', 110000.00, 0.00, 110000.00, 0.00, 0.00, 19800.00, 0.00, 129800.00, 129800.00, 'paid', 'Managed Kubernetes multi-zone cluster hosting', NULL, true),
-('inv00000-0000-0000-0000-000000000022', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000004', 'INV-2024-014', 'sales', '2024-10-27', '2024-11-27', '2024-2025', '29-Karnataka', 340000.00, 0.00, 340000.00, 0.00, 0.00, 61200.00, 0.00, 401200.00, 401200.00, 'paid', 'Biomedical data stream ingestion software', NULL, true),
+('e0000000-0000-0000-0000-000000000020', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000001', 'INV-2024-013', 'sales', '2024-10-09', '2024-11-09', '2024-2025', '33-Tamil Nadu', 520000.00, 20000.00, 500000.00, 45000.00, 45000.00, 0.00, 0.00, 590000.00, 590000.00, 'paid', 'Banking core ledger synchronization architecture', NULL, true),
+('e0000000-0000-0000-0000-000000000021', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000007', 'BILL-2024-10-01', 'purchase', '2024-10-18', '2024-11-18', '2024-2025', '29-Karnataka', 110000.00, 0.00, 110000.00, 0.00, 0.00, 19800.00, 0.00, 129800.00, 129800.00, 'paid', 'Managed Kubernetes multi-zone cluster hosting', NULL, true),
+('e0000000-0000-0000-0000-000000000022', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000004', 'INV-2024-014', 'sales', '2024-10-27', '2024-11-27', '2024-2025', '29-Karnataka', 340000.00, 0.00, 340000.00, 0.00, 0.00, 61200.00, 0.00, 401200.00, 401200.00, 'paid', 'Biomedical data stream ingestion software', NULL, true),
 
 -- November 2024 (Includes Partially Paid and Unpaid)
-('inv00000-0000-0000-0000-000000000023', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000002', 'INV-2024-015', 'sales', '2024-11-05', '2024-12-05', '2024-2025', '33-Tamil Nadu', 440000.00, 40000.00, 400000.00, 36000.00, 36000.00, 0.00, 0.00, 472000.00, 250000.00, 'partially_paid', 'Cold-chain dispatch route tracking dashboard', NULL, true),
-('inv00000-0000-0000-0000-000000000024', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000005', 'INV-2024-016', 'sales', '2024-11-19', '2024-12-19', '2024-2025', '27-Maharashtra', 700000.00, 0.00, 700000.00, 0.00, 0.00, 126000.00, 0.00, 826000.00, 0.00, 'unpaid', 'Merchant settlement multi-bank routing engine', NULL, true),
-('inv00000-0000-0000-0000-000000000025', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000010', 'BILL-2024-11-01', 'purchase', '2024-11-26', '2024-12-26', '2024-2025', '07-Delhi', 90000.00, 0.00, 90000.00, 0.00, 0.00, 16200.00, 0.00, 106200.00, 50000.00, 'partially_paid', 'Specialized cybersecurity audit & penetration test fee', NULL, true),
+('e0000000-0000-0000-0000-000000000023', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000002', 'INV-2024-015', 'sales', '2024-11-05', '2024-12-05', '2024-2025', '33-Tamil Nadu', 440000.00, 40000.00, 400000.00, 36000.00, 36000.00, 0.00, 0.00, 472000.00, 250000.00, 'partially_paid', 'Cold-chain dispatch route tracking dashboard', NULL, true),
+('e0000000-0000-0000-0000-000000000024', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000005', 'INV-2024-016', 'sales', '2024-11-19', '2024-12-19', '2024-2025', '27-Maharashtra', 700000.00, 0.00, 700000.00, 0.00, 0.00, 126000.00, 0.00, 826000.00, 0.00, 'unpaid', 'Merchant settlement multi-bank routing engine', NULL, true),
+('e0000000-0000-0000-0000-000000000025', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000010', 'BILL-2024-11-01', 'purchase', '2024-11-26', '2024-12-26', '2024-2025', '07-Delhi', 90000.00, 0.00, 90000.00, 0.00, 0.00, 16200.00, 0.00, 106200.00, 50000.00, 'partially_paid', 'Specialized cybersecurity audit & penetration test fee', NULL, true),
 
 -- December 2024 (Includes Overdue and Special GST Rates)
-('inv00000-0000-0000-0000-000000000026', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000003', 'INV-2024-017', 'sales', '2024-12-02', '2025-01-02', '2024-2025', '33-Tamil Nadu', 350000.00, 0.00, 350000.00, 31500.00, 31500.00, 0.00, 0.00, 413000.00, 0.00, 'overdue', 'E-commerce billing integration software [OVERDUE PAYMENT]', NULL, true),
-('inv00000-0000-0000-0000-000000000027', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000006', 'INV-2024-018', 'sales', '2024-12-14', '2025-01-14', '2024-2025', '36-Telangana', 200000.00, 0.00, 200000.00, 0.00, 0.00, 10000.00, 0.00, 210000.00, 210000.00, 'paid', 'Agricultural open dataset subscription (5% concessional GST tier)', NULL, true),
-('inv00000-0000-0000-0000-000000000028', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000007', 'BILL-2024-12-01', 'purchase', '2024-12-20', '2025-01-20', '2024-2025', '29-Karnataka', 130000.00, 0.00, 130000.00, 0.00, 0.00, 23400.00, 0.00, 153400.00, 0.00, 'overdue', 'Annual cloud backup and cold storage retainer [OVERDUE PAYABLE]', NULL, true),
+('e0000000-0000-0000-0000-000000000026', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000003', 'INV-2024-017', 'sales', '2024-12-02', '2025-01-02', '2024-2025', '33-Tamil Nadu', 350000.00, 0.00, 350000.00, 31500.00, 31500.00, 0.00, 0.00, 413000.00, 0.00, 'overdue', 'E-commerce billing integration software [OVERDUE PAYMENT]', NULL, true),
+('e0000000-0000-0000-0000-000000000027', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000006', 'INV-2024-018', 'sales', '2024-12-14', '2025-01-14', '2024-2025', '36-Telangana', 200000.00, 0.00, 200000.00, 0.00, 0.00, 10000.00, 0.00, 210000.00, 210000.00, 'paid', 'Agricultural open dataset subscription (5% concessional GST tier)', NULL, true),
+('e0000000-0000-0000-0000-000000000028', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000007', 'BILL-2024-12-01', 'purchase', '2024-12-20', '2025-01-20', '2024-2025', '29-Karnataka', 130000.00, 0.00, 130000.00, 0.00, 0.00, 23400.00, 0.00, 153400.00, 0.00, 'overdue', 'Annual cloud backup and cold storage retainer [OVERDUE PAYABLE]', NULL, true),
 
 -- January 2025 (Includes Deliberate Anomalies)
 -- ANOMALY 1: Duplicate invoice number pattern / identical billing to Vertex
-('inv00000-0000-0000-0000-000000000029', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000001', 'INV-2025-001-A', 'sales', '2025-01-10', '2025-02-10', '2024-2025', '33-Tamil Nadu', 300000.00, 0.00, 300000.00, 27000.00, 27000.00, 0.00, 0.00, 354000.00, 354000.00, 'paid', 'Custom CRM sync connectors release', NULL, true),
-('inv00000-0000-0000-0000-000000000030', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000001', 'INV-2025-001-B', 'sales', '2025-01-10', '2025-02-10', '2024-2025', '33-Tamil Nadu', 300000.00, 0.00, 300000.00, 27000.00, 27000.00, 0.00, 0.00, 354000.00, 0.00, 'unpaid', '[ANOMALY: DUPLICATE ENTRY] Identical amount, party, date, and description submitted twice', NULL, true),
+('e0000000-0000-0000-0000-000000000029', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000001', 'INV-2025-001-A', 'sales', '2025-01-10', '2025-02-10', '2024-2025', '33-Tamil Nadu', 300000.00, 0.00, 300000.00, 27000.00, 27000.00, 0.00, 0.00, 354000.00, 354000.00, 'paid', 'Custom CRM sync connectors release', NULL, true),
+('e0000000-0000-0000-0000-000000000030', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000001', 'INV-2025-001-B', 'sales', '2025-01-10', '2025-02-10', '2024-2025', '33-Tamil Nadu', 300000.00, 0.00, 300000.00, 27000.00, 27000.00, 0.00, 0.00, 354000.00, 0.00, 'unpaid', '[ANOMALY: DUPLICATE ENTRY] Identical amount, party, date, and description submitted twice', NULL, true),
 
 -- ANOMALY 2: Unusual Large Invoice Spike (6x historical average)
-('inv00000-0000-0000-0000-000000000031', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000004', 'INV-2025-002', 'sales', '2025-01-18', '2025-02-18', '2024-2025', '29-Karnataka', 4500000.00, 0.00, 4500000.00, 0.00, 0.00, 810000.00, 0.00, 5310000.00, 0.00, 'unpaid', '[ANOMALY: STATISTICAL SPIKE] Mega multi-year hospital software license exceeding 6x standard size', NULL, true),
+('e0000000-0000-0000-0000-000000000031', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000004', 'INV-2025-002', 'sales', '2025-01-18', '2025-02-18', '2024-2025', '29-Karnataka', 4500000.00, 0.00, 4500000.00, 0.00, 0.00, 810000.00, 0.00, 5310000.00, 0.00, 'unpaid', '[ANOMALY: STATISTICAL SPIKE] Mega multi-year hospital software license exceeding 6x standard size', NULL, true),
 
 -- ANOMALY 3: Calculation & Rate discrepancy (Intra-state billed with IGST or rate mismatch)
-('inv00000-0000-0000-0000-000000000032', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000002', 'INV-2025-003', 'sales', '2025-01-25', '2025-02-25', '2024-2025', '33-Tamil Nadu', 200000.00, 0.00, 200000.00, 0.00, 0.00, 36000.00, 0.00, 236000.00, 0.00, 'unpaid', '[ANOMALY: TAX DISCREPANCY] Intra-state Tamil Nadu transaction erroneously tagged with IGST instead of CGST+SGST', NULL, true),
+('e0000000-0000-0000-0000-000000000032', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000002', 'INV-2025-003', 'sales', '2025-01-25', '2025-02-25', '2024-2025', '33-Tamil Nadu', 200000.00, 0.00, 200000.00, 0.00, 0.00, 36000.00, 0.00, 236000.00, 0.00, 'unpaid', '[ANOMALY: TAX DISCREPANCY] Intra-state Tamil Nadu transaction erroneously tagged with IGST instead of CGST+SGST', NULL, true),
 
 -- February 2025
-('inv00000-0000-0000-0000-000000000033', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000005', 'INV-2025-004', 'sales', '2025-02-05', '2025-03-05', '2024-2025', '27-Maharashtra', 480000.00, 0.00, 480000.00, 0.00, 0.00, 86400.00, 0.00, 566400.00, 0.00, 'unpaid', 'Payment gateway merchant analytics dashboard upgrade', NULL, true),
-('inv00000-0000-0000-0000-000000000034', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000008', 'BILL-2025-02-01', 'purchase', '2025-02-12', '2025-03-12', '2024-2025', '33-Tamil Nadu', 50000.00, 0.00, 50000.00, 4500.00, 4500.00, 0.00, 0.00, 59000.00, 59000.00, 'paid', 'SSD server upgrades and office peripherals', NULL, true),
-('inv00000-0000-0000-0000-000000000035', 'b0000000-0000-0000-0000-000000000001', 'p0000000-0000-0000-0000-000000000003', 'INV-2025-005', 'sales', '2025-02-20', '2025-03-20', '2024-2025', '33-Tamil Nadu', 100000.00, 0.00, 100000.00, 0.00, 0.00, 0.00, 0.00, 100000.00, 0.00, 'draft', 'Export software consultancy prototype (0% GST zero-rated draft)', NULL, true);
+('e0000000-0000-0000-0000-000000000033', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000005', 'INV-2025-004', 'sales', '2025-02-05', '2025-03-05', '2024-2025', '27-Maharashtra', 480000.00, 0.00, 480000.00, 0.00, 0.00, 86400.00, 0.00, 566400.00, 0.00, 'unpaid', 'Payment gateway merchant analytics dashboard upgrade', NULL, true),
+('e0000000-0000-0000-0000-000000000034', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000008', 'BILL-2025-02-01', 'purchase', '2025-02-12', '2025-03-12', '2024-2025', '33-Tamil Nadu', 50000.00, 0.00, 50000.00, 4500.00, 4500.00, 0.00, 0.00, 59000.00, 59000.00, 'paid', 'SSD server upgrades and office peripherals', NULL, true),
+('e0000000-0000-0000-0000-000000000035', 'b0000000-0000-0000-0000-000000000001', 'c0000000-0000-0000-0000-000000000003', 'INV-2025-005', 'sales', '2025-02-20', '2025-03-20', '2024-2025', '33-Tamil Nadu', 100000.00, 0.00, 100000.00, 0.00, 0.00, 0.00, 0.00, 100000.00, 0.00, 'draft', 'Export software consultancy prototype (0% GST zero-rated draft)', NULL, true);
 
 -- ------------------------------------------------------------------------------
 -- 5. INVOICE ITEMS (Line-item breakdowns for sample invoices)
@@ -380,26 +380,26 @@ INSERT INTO public.invoice_items (
     igst_amount, total_amount
 ) VALUES
 -- For INV-2024-001
-('item0000-0000-0000-0000-000000000001', 'inv00000-0000-0000-0000-000000000001', 'Senior Full Stack Development Sprint (160 Hours)', '998313', 1.00, 200000.00, 0.00, 18.00, 200000.00, 18000.00, 18000.00, 0.00, 236000.00),
-('item0000-0000-0000-0000-000000000002', 'inv00000-0000-0000-0000-000000000001', 'DevOps & CI/CD Pipeline Automation', '998314', 1.00, 50000.00, 0.00, 18.00, 50000.00, 4500.00, 4500.00, 0.00, 59000.00),
+('f0000000-0000-0000-0000-000000000001', 'e0000000-0000-0000-0000-000000000001', 'Senior Full Stack Development Sprint (160 Hours)', '998313', 1.00, 200000.00, 0.00, 18.00, 200000.00, 18000.00, 18000.00, 0.00, 236000.00),
+('f0000000-0000-0000-0000-000000000002', 'e0000000-0000-0000-0000-000000000001', 'DevOps & CI/CD Pipeline Automation', '998314', 1.00, 50000.00, 0.00, 18.00, 50000.00, 4500.00, 4500.00, 0.00, 59000.00),
 
 -- For BILL-2024-04-01
-('item0000-0000-0000-0000-000000000003', 'inv00000-0000-0000-0000-000000000002', 'High-memory Cloud Compute Nodes (Monthly)', '998315', 5.00, 13000.00, 0.00, 18.00, 65000.00, 0.00, 0.00, 11700.00, 76700.00),
+('f0000000-0000-0000-0000-000000000003', 'e0000000-0000-0000-0000-000000000002', 'High-memory Cloud Compute Nodes (Monthly)', '998315', 5.00, 13000.00, 0.00, 18.00, 65000.00, 0.00, 0.00, 11700.00, 76700.00),
 
 -- For INV-2024-002
-('item0000-0000-0000-0000-000000000004', 'inv00000-0000-0000-0000-000000000003', 'Healthcare Telemetry Data Pipeline Architecture', '998313', 1.00, 420000.00, 20000.00, 18.00, 400000.00, 0.00, 0.00, 72000.00, 472000.00),
+('f0000000-0000-0000-0000-000000000004', 'e0000000-0000-0000-0000-000000000003', 'Healthcare Telemetry Data Pipeline Architecture', '998313', 1.00, 420000.00, 20000.00, 18.00, 400000.00, 0.00, 0.00, 72000.00, 472000.00),
 
 -- For INV-2024-005 (12% GST rate tier example)
-('item0000-0000-0000-0000-000000000005', 'inv00000-0000-0000-0000-000000000008', 'Packaged Retail Barcode Utility Software Bundle', '852380', 1.00, 150000.00, 0.00, 12.00, 150000.00, 9000.00, 9000.00, 0.00, 168000.00),
+('f0000000-0000-0000-0000-000000000005', 'e0000000-0000-0000-0000-000000000008', 'Packaged Retail Barcode Utility Software Bundle', '852380', 1.00, 150000.00, 0.00, 12.00, 150000.00, 9000.00, 9000.00, 0.00, 168000.00),
 
 -- For BILL-2024-08-01 (28% GST rate tier example)
-('item0000-0000-0000-0000-000000000006', 'inv00000-0000-0000-0000-000000000016', 'Managed Gigabit Enterprise Switch Hardware', '851762', 1.00, 75000.00, 0.00, 28.00, 75000.00, 10500.00, 10500.00, 0.00, 96000.00),
+('f0000000-0000-0000-0000-000000000006', 'e0000000-0000-0000-0000-000000000016', 'Managed Gigabit Enterprise Switch Hardware', '851762', 1.00, 75000.00, 0.00, 28.00, 75000.00, 10500.00, 10500.00, 0.00, 96000.00),
 
 -- For INV-2024-018 (5% GST rate tier example)
-('item0000-0000-0000-0000-000000000007', 'inv00000-0000-0000-0000-000000000027', 'Agricultural Research Digital Publications & Data Feed', '490199', 1.00, 200000.00, 0.00, 5.00, 200000.00, 0.00, 0.00, 10000.00, 210000.00),
+('f0000000-0000-0000-0000-000000000007', 'e0000000-0000-0000-0000-000000000027', 'Agricultural Research Digital Publications & Data Feed', '490199', 1.00, 200000.00, 0.00, 5.00, 200000.00, 0.00, 0.00, 10000.00, 210000.00),
 
 -- For INV-2025-005 (0% GST rate tier example)
-('item0000-0000-0000-0000-000000000008', 'inv00000-0000-0000-0000-000000000035', 'Export Software Engineering Consulting (Zero Rated)', '998313', 1.00, 100000.00, 0.00, 0.00, 100000.00, 0.00, 0.00, 0.00, 100000.00)
+('f0000000-0000-0000-0000-000000000008', 'e0000000-0000-0000-0000-000000000035', 'Export Software Engineering Consulting (Zero Rated)', '998313', 1.00, 100000.00, 0.00, 0.00, 100000.00, 0.00, 0.00, 0.00, 100000.00)
 ON CONFLICT (id) DO NOTHING;
 
 -- ------------------------------------------------------------------------------
@@ -414,7 +414,7 @@ INSERT INTO public.anomaly_alerts (
 (
     'a0000000-0000-0000-0000-000000000001',
     'b0000000-0000-0000-0000-000000000001',
-    'inv00000-0000-0000-0000-000000000030',
+    'e0000000-0000-0000-0000-000000000030',
     'DUPLICATE_INVOICE_PATTERN',
     'high',
     'Possible duplicate invoice detected: Identical party (Vertex Financial Services), date (2025-01-10), and taxable amount (₹3,00,000.00) matches invoice INV-2025-001-A.',
@@ -425,7 +425,7 @@ INSERT INTO public.anomaly_alerts (
 (
     'a0000000-0000-0000-0000-000000000002',
     'b0000000-0000-0000-0000-000000000001',
-    'inv00000-0000-0000-0000-000000000031',
+    'e0000000-0000-0000-0000-000000000031',
     'STATISTICAL_VALUE_OUTLIER',
     'high',
     'Unusually high invoice value (₹53,10,000.00) is 610% higher than the 6-month historical average invoice size (₹4,20,000.00).',
@@ -436,7 +436,7 @@ INSERT INTO public.anomaly_alerts (
 (
     'a0000000-0000-0000-0000-000000000003',
     'b0000000-0000-0000-0000-000000000001',
-    'inv00000-0000-0000-0000-000000000032',
+    'e0000000-0000-0000-0000-000000000032',
     'TAX_TREATMENT_MISMATCH',
     'medium',
     'Place of supply is Tamil Nadu (Intra-state) but IGST was charged instead of CGST (9%) and SGST (9%).',
@@ -447,7 +447,7 @@ INSERT INTO public.anomaly_alerts (
 (
     'a0000000-0000-0000-0000-000000000004',
     'b0000000-0000-0000-0000-000000000001',
-    'inv00000-0000-0000-0000-000000000026',
+    'e0000000-0000-0000-0000-000000000026',
     'OVERDUE_RECEIVABLE_FLAG',
     'medium',
     'Invoice INV-2024-017 for Kavitha Retail Ventures (₹4,13,000.00) is past its due date (2025-01-02) with 0 payment recorded.',
@@ -466,7 +466,7 @@ INSERT INTO public.tax_assessments (
     estimated_taxable_income, potential_benefits, estimated_tax_savings,
     assumptions, warnings, disclaimer
 ) VALUES (
-    't0000000-0000-0000-0000-000000000001',
+    'a1000000-0000-0000-0000-000000000001',
     'b0000000-0000-0000-0000-000000000001',
     '2024-2025',
     '2025-01-31',
