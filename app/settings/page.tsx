@@ -145,7 +145,7 @@ export default function SettingsPage() {
               <div>
                 <span className="font-mono font-bold text-slate-900 block">Bucket: invoice-documents</span>
                 <span className="text-[11px] text-slate-500">
-                  Private bucket with 10MB file limit. Allowed: PDF, PNG, JPEG, WebP.
+                  Private bucket with 15MB file limit. Allowed: All formats (PDF, PNG, JPEG, WebP, DOCX, XLSX, CSV, ZIP, etc.).
                 </span>
               </div>
               <Badge variant="default">Private RLS</Badge>

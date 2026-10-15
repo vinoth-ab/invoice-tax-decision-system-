@@ -20,7 +20,20 @@ import {
   Building,
   CheckCircle,
   AlertTriangle,
+  Paperclip,
+  Download,
+  ExternalLink,
+  FileText,
+  Image as ImageIcon,
+  FileSpreadsheet,
+  Archive,
+  File as GenericFile,
 } from 'lucide-react';
+import {
+  parseAttachment,
+  formatFileSize,
+  getFileCategory,
+} from '@/lib/storage/attachments';
 
 export default function InvoiceDetailPage({
   params,
@@ -120,6 +133,7 @@ export default function InvoiceDetailPage({
 
   const taxes = (invoice.cgst_amount || 0) + (invoice.sgst_amount || 0) + (invoice.igst_amount || 0) + (invoice.cess_amount || 0);
   const balance = Math.max(0, invoice.total_amount - (invoice.amount_paid || 0));
+  const attachment = parseAttachment(invoice.document_path);
 
   return (
     <AppLayout>
@@ -330,6 +344,94 @@ export default function InvoiceDetailPage({
             </div>
           </div>
         </div>
+
+        {/* Attached Document & Source Files Card (No-print) */}
+        {attachment && (
+          <div className="no-print bg-white rounded-xl border border-slate-200/90 shadow-sm p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+                  <Paperclip className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-sm text-slate-900">Attached Supporting Document</h3>
+                  <p className="text-[11px] text-slate-500">
+                    Source bill, original receipt, or scanned tax invoice linked to this record
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <a
+                  href={attachment.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>Open Full View</span>
+                </a>
+                <a
+                  href={attachment.url}
+                  download={attachment.name}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-xs transition-colors"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Download File</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="p-3.5 bg-slate-50 border border-slate-200/70 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0">
+                  {getFileCategory(attachment.type, attachment.name) === 'image' && (
+                    <ImageIcon className="w-5 h-5 text-blue-600" />
+                  )}
+                  {getFileCategory(attachment.type, attachment.name) === 'pdf' && (
+                    <FileText className="w-5 h-5 text-rose-600" />
+                  )}
+                  {getFileCategory(attachment.type, attachment.name) === 'spreadsheet' && (
+                    <FileSpreadsheet className="w-5 h-5 text-emerald-600" />
+                  )}
+                  {getFileCategory(attachment.type, attachment.name) === 'document' && (
+                    <FileText className="w-5 h-5 text-indigo-600" />
+                  )}
+                  {getFileCategory(attachment.type, attachment.name) === 'archive' && (
+                    <Archive className="w-5 h-5 text-amber-600" />
+                  )}
+                  {getFileCategory(attachment.type, attachment.name) === 'other' && (
+                    <GenericFile className="w-5 h-5 text-slate-600" />
+                  )}
+                </div>
+                <div className="min-w-0">
+                  <p className="font-semibold text-xs text-slate-900 truncate max-w-sm" title={attachment.name}>
+                    {attachment.name}
+                  </p>
+                  <p className="text-[11px] text-slate-500">
+                    {formatFileSize(attachment.size)} • {attachment.type || 'Document'}
+                  </p>
+                </div>
+              </div>
+
+              <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                Verified Attachment
+              </span>
+            </div>
+
+            {/* If it's an image, render an inline preview */}
+            {getFileCategory(attachment.type, attachment.name) === 'image' && (
+              <div className="rounded-lg border border-slate-200 overflow-hidden bg-slate-900/5 p-2 flex justify-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={attachment.url}
+                  alt={attachment.name}
+                  className="max-h-96 max-w-full rounded object-contain shadow-xs"
+                />
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Record Payment Modal */}
         <Modal

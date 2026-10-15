@@ -4,19 +4,19 @@
 -- with secure RLS policies.
 -- ==============================================================================
 
--- Create private bucket 'invoice-documents' if it does not exist
+-- Create private bucket 'invoice-documents' if it does not exist (allows all document/image formats up to 15MB)
 INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 VALUES (
     'invoice-documents',
     'invoice-documents',
     false,
-    10485760, -- 10MB file limit
-    ARRAY['application/pdf', 'image/jpeg', 'image/png', 'image/webp']
+    15728640, -- 15MB file limit
+    NULL -- NULL allows all formats (PDF, PNG, JPG, WEBP, DOCX, XLSX, CSV, ZIP, etc.)
 )
 ON CONFLICT (id) DO UPDATE SET
     public = false,
-    file_size_limit = 10485760,
-    allowed_mime_types = ARRAY['application/pdf', 'image/jpeg', 'image/png', 'image/webp'];
+    file_size_limit = 15728640,
+    allowed_mime_types = NULL;
 
 -- Storage RLS Policies:
 -- Storage objects path convention: {business_id}/{invoice_id}/{filename}

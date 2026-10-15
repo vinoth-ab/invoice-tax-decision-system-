@@ -28,6 +28,8 @@ import {
   AlertCircle,
   HelpCircle,
 } from 'lucide-react';
+import { InvoiceAttachmentUpload } from '@/components/invoices/InvoiceAttachmentUpload';
+import { InvoiceAttachmentMetadata, encodeAttachment } from '@/lib/storage/attachments';
 
 export default function NewInvoicePage() {
   const router = useRouter();
@@ -46,6 +48,7 @@ export default function NewInvoicePage() {
   const [placeOfSupply, setPlaceOfSupply] = useState<string>('Tamil Nadu');
   const [cessAmount, setCessAmount] = useState<number>(0);
   const [notes, setNotes] = useState<string>('');
+  const [attachment, setAttachment] = useState<InvoiceAttachmentMetadata | null>(null);
 
   useEffect(() => {
     // Generate real-time invoice number and dates only on client mount
@@ -177,6 +180,7 @@ export default function NewInvoicePage() {
           amount_paid: 0,
           payment_status: status,
           notes: notes.trim() || null,
+          document_path: attachment ? encodeAttachment(attachment) : null,
         },
         totals.calculatedItems
       );
@@ -363,6 +367,17 @@ export default function NewInvoicePage() {
               </select>
             </div>
           </div>
+        </Card>
+
+        {/* Invoice Document & Attachments Section */}
+        <Card className="p-5">
+          <InvoiceAttachmentUpload
+            attachment={attachment}
+            onAttachmentChange={setAttachment}
+            businessId={selectedBusiness?.id}
+            invoiceNumber={invoiceNumber}
+            disabled={isSubmitting}
+          />
         </Card>
 
         {/* Line Items Card */}

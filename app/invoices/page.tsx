@@ -23,6 +23,7 @@ import {
   FileText,
   ArrowUpDown,
   CheckCircle,
+  Paperclip,
 } from 'lucide-react';
 
 export default function InvoicesPage() {
@@ -278,6 +279,11 @@ export default function InvoicesPage() {
                         <Link href={`/invoices/${inv.id}`} className="hover:text-blue-600 flex items-center gap-1.5">
                           <FileText className="w-3.5 h-3.5 text-slate-400" />
                           <span>{inv.invoice_number}</span>
+                          {inv.document_path && (
+                            <span className="inline-flex items-center text-blue-600 bg-blue-50 px-1 py-0.5 rounded text-[10px]" title="Attachment included">
+                              <Paperclip className="w-2.5 h-2.5" />
+                            </span>
+                          )}
                         </Link>
                         {inv.is_sample && (
                           <span className="inline-block text-[9px] bg-slate-100 text-slate-500 px-1 rounded mt-0.5">
