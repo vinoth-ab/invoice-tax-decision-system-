@@ -20,14 +20,17 @@ CREATE TABLE IF NOT EXISTS public.profiles (
 
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Users can view their own profile" ON public.profiles;
 CREATE POLICY "Users can view their own profile"
     ON public.profiles FOR SELECT
     USING (auth.uid() = id);
 
+DROP POLICY IF EXISTS "Users can update their own profile" ON public.profiles;
 CREATE POLICY "Users can update their own profile"
     ON public.profiles FOR UPDATE
     USING (auth.uid() = id);
 
+DROP POLICY IF EXISTS "Users can insert their own profile" ON public.profiles;
 CREATE POLICY "Users can insert their own profile"
     ON public.profiles FOR INSERT
     WITH CHECK (auth.uid() = id);
@@ -57,18 +60,22 @@ CREATE TABLE IF NOT EXISTS public.businesses (
 
 ALTER TABLE public.businesses ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Users can view their own businesses or sample demo businesses" ON public.businesses;
 CREATE POLICY "Users can view their own businesses or sample demo businesses"
     ON public.businesses FOR SELECT
     USING (owner_id = auth.uid() OR is_demo = true);
 
+DROP POLICY IF EXISTS "Users can create their own businesses" ON public.businesses;
 CREATE POLICY "Users can create their own businesses"
     ON public.businesses FOR INSERT
     WITH CHECK (owner_id = auth.uid());
 
+DROP POLICY IF EXISTS "Users can update their own businesses" ON public.businesses;
 CREATE POLICY "Users can update their own businesses"
     ON public.businesses FOR UPDATE
     USING (owner_id = auth.uid() AND is_demo = false);
 
+DROP POLICY IF EXISTS "Users can delete their own businesses" ON public.businesses;
 CREATE POLICY "Users can delete their own businesses"
     ON public.businesses FOR DELETE
     USING (owner_id = auth.uid() AND is_demo = false);
@@ -96,6 +103,7 @@ CREATE INDEX IF NOT EXISTS idx_parties_party_type ON public.parties(party_type);
 
 ALTER TABLE public.parties ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Users can view parties of accessible businesses" ON public.parties;
 CREATE POLICY "Users can view parties of accessible businesses"
     ON public.parties FOR SELECT
     USING (
@@ -106,6 +114,7 @@ CREATE POLICY "Users can view parties of accessible businesses"
         )
     );
 
+DROP POLICY IF EXISTS "Users can insert parties into their businesses" ON public.parties;
 CREATE POLICY "Users can insert parties into their businesses"
     ON public.parties FOR INSERT
     WITH CHECK (
@@ -116,6 +125,7 @@ CREATE POLICY "Users can insert parties into their businesses"
         )
     );
 
+DROP POLICY IF EXISTS "Users can update parties in their businesses" ON public.parties;
 CREATE POLICY "Users can update parties in their businesses"
     ON public.parties FOR UPDATE
     USING (
@@ -126,6 +136,7 @@ CREATE POLICY "Users can update parties in their businesses"
         )
     );
 
+DROP POLICY IF EXISTS "Users can delete parties in their businesses" ON public.parties;
 CREATE POLICY "Users can delete parties in their businesses"
     ON public.parties FOR DELETE
     USING (
@@ -174,6 +185,7 @@ CREATE INDEX IF NOT EXISTS idx_invoices_party ON public.invoices(party_id);
 
 ALTER TABLE public.invoices ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Users can view invoices of accessible businesses" ON public.invoices;
 CREATE POLICY "Users can view invoices of accessible businesses"
     ON public.invoices FOR SELECT
     USING (
@@ -184,6 +196,7 @@ CREATE POLICY "Users can view invoices of accessible businesses"
         )
     );
 
+DROP POLICY IF EXISTS "Users can insert invoices into their businesses" ON public.invoices;
 CREATE POLICY "Users can insert invoices into their businesses"
     ON public.invoices FOR INSERT
     WITH CHECK (
@@ -194,6 +207,7 @@ CREATE POLICY "Users can insert invoices into their businesses"
         )
     );
 
+DROP POLICY IF EXISTS "Users can update invoices in their businesses" ON public.invoices;
 CREATE POLICY "Users can update invoices in their businesses"
     ON public.invoices FOR UPDATE
     USING (
@@ -204,6 +218,7 @@ CREATE POLICY "Users can update invoices in their businesses"
         )
     );
 
+DROP POLICY IF EXISTS "Users can delete invoices in their businesses" ON public.invoices;
 CREATE POLICY "Users can delete invoices in their businesses"
     ON public.invoices FOR DELETE
     USING (
@@ -238,6 +253,7 @@ CREATE INDEX IF NOT EXISTS idx_invoice_items_invoice_id ON public.invoice_items(
 
 ALTER TABLE public.invoice_items ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Users can view line items of accessible invoices" ON public.invoice_items;
 CREATE POLICY "Users can view line items of accessible invoices"
     ON public.invoice_items FOR SELECT
     USING (
@@ -249,6 +265,7 @@ CREATE POLICY "Users can view line items of accessible invoices"
         )
     );
 
+DROP POLICY IF EXISTS "Users can insert line items into their invoices" ON public.invoice_items;
 CREATE POLICY "Users can insert line items into their invoices"
     ON public.invoice_items FOR INSERT
     WITH CHECK (
@@ -260,6 +277,7 @@ CREATE POLICY "Users can insert line items into their invoices"
         )
     );
 
+DROP POLICY IF EXISTS "Users can update line items of their invoices" ON public.invoice_items;
 CREATE POLICY "Users can update line items of their invoices"
     ON public.invoice_items FOR UPDATE
     USING (
@@ -271,6 +289,7 @@ CREATE POLICY "Users can update line items of their invoices"
         )
     );
 
+DROP POLICY IF EXISTS "Users can delete line items of their invoices" ON public.invoice_items;
 CREATE POLICY "Users can delete line items of their invoices"
     ON public.invoice_items FOR DELETE
     USING (
@@ -313,20 +332,22 @@ CREATE INDEX IF NOT EXISTS idx_tax_schemes_active ON public.tax_schemes(is_activ
 
 ALTER TABLE public.tax_schemes ENABLE ROW LEVEL SECURITY;
 
--- Reference data is readable by all authenticated users and anonymous visitors
+DROP POLICY IF EXISTS "Tax schemes are viewable by all users" ON public.tax_schemes;
 CREATE POLICY "Tax schemes are viewable by all users"
     ON public.tax_schemes FOR SELECT
     USING (true);
 
--- Modifications restricted to trusted service role or admins
+DROP POLICY IF EXISTS "Admins can insert tax schemes" ON public.tax_schemes;
 CREATE POLICY "Admins can insert tax schemes"
     ON public.tax_schemes FOR INSERT
     WITH CHECK (auth.role() = 'service_role');
 
+DROP POLICY IF EXISTS "Admins can update tax schemes" ON public.tax_schemes;
 CREATE POLICY "Admins can update tax schemes"
     ON public.tax_schemes FOR UPDATE
     USING (auth.role() = 'service_role');
 
+DROP POLICY IF EXISTS "Admins can delete tax schemes" ON public.tax_schemes;
 CREATE POLICY "Admins can delete tax schemes"
     ON public.tax_schemes FOR DELETE
     USING (auth.role() = 'service_role');
@@ -353,6 +374,7 @@ CREATE INDEX IF NOT EXISTS idx_tax_assessments_business ON public.tax_assessment
 
 ALTER TABLE public.tax_assessments ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Users can view tax assessments of accessible businesses" ON public.tax_assessments;
 CREATE POLICY "Users can view tax assessments of accessible businesses"
     ON public.tax_assessments FOR SELECT
     USING (
@@ -363,6 +385,7 @@ CREATE POLICY "Users can view tax assessments of accessible businesses"
         )
     );
 
+DROP POLICY IF EXISTS "Users can create tax assessments for their businesses" ON public.tax_assessments;
 CREATE POLICY "Users can create tax assessments for their businesses"
     ON public.tax_assessments FOR INSERT
     WITH CHECK (
@@ -373,6 +396,7 @@ CREATE POLICY "Users can create tax assessments for their businesses"
         )
     );
 
+DROP POLICY IF EXISTS "Users can delete tax assessments for their businesses" ON public.tax_assessments;
 CREATE POLICY "Users can delete tax assessments for their businesses"
     ON public.tax_assessments FOR DELETE
     USING (
@@ -406,6 +430,7 @@ CREATE INDEX IF NOT EXISTS idx_anomaly_alerts_severity ON public.anomaly_alerts(
 
 ALTER TABLE public.anomaly_alerts ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Users can view anomaly alerts of accessible businesses" ON public.anomaly_alerts;
 CREATE POLICY "Users can view anomaly alerts of accessible businesses"
     ON public.anomaly_alerts FOR SELECT
     USING (
@@ -416,6 +441,7 @@ CREATE POLICY "Users can view anomaly alerts of accessible businesses"
         )
     );
 
+DROP POLICY IF EXISTS "Users can create anomaly alerts in their businesses" ON public.anomaly_alerts;
 CREATE POLICY "Users can create anomaly alerts in their businesses"
     ON public.anomaly_alerts FOR INSERT
     WITH CHECK (
@@ -426,6 +452,7 @@ CREATE POLICY "Users can create anomaly alerts in their businesses"
         )
     );
 
+DROP POLICY IF EXISTS "Users can update anomaly alerts in their businesses" ON public.anomaly_alerts;
 CREATE POLICY "Users can update anomaly alerts in their businesses"
     ON public.anomaly_alerts FOR UPDATE
     USING (
@@ -456,6 +483,7 @@ CREATE INDEX IF NOT EXISTS idx_invoice_files_invoice ON public.invoice_files(inv
 
 ALTER TABLE public.invoice_files ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Users can view files of accessible businesses" ON public.invoice_files;
 CREATE POLICY "Users can view files of accessible businesses"
     ON public.invoice_files FOR SELECT
     USING (
@@ -466,6 +494,7 @@ CREATE POLICY "Users can view files of accessible businesses"
         )
     );
 
+DROP POLICY IF EXISTS "Users can insert files into their businesses" ON public.invoice_files;
 CREATE POLICY "Users can insert files into their businesses"
     ON public.invoice_files FOR INSERT
     WITH CHECK (
@@ -476,6 +505,7 @@ CREATE POLICY "Users can insert files into their businesses"
         )
     );
 
+DROP POLICY IF EXISTS "Users can delete files in their businesses" ON public.invoice_files;
 CREATE POLICY "Users can delete files in their businesses"
     ON public.invoice_files FOR DELETE
     USING (

@@ -21,6 +21,7 @@ ON CONFLICT (id) DO UPDATE SET
 -- Storage RLS Policies:
 -- Storage objects path convention: {business_id}/{invoice_id}/{filename}
 
+DROP POLICY IF EXISTS "Authenticated users can upload invoice documents" ON storage.objects;
 CREATE POLICY "Authenticated users can upload invoice documents"
 ON storage.objects FOR INSERT
 TO authenticated
@@ -33,6 +34,7 @@ WITH CHECK (
     )
 );
 
+DROP POLICY IF EXISTS "Users can view invoice documents for their businesses" ON storage.objects;
 CREATE POLICY "Users can view invoice documents for their businesses"
 ON storage.objects FOR SELECT
 TO authenticated
@@ -45,6 +47,7 @@ USING (
     )
 );
 
+DROP POLICY IF EXISTS "Users can delete invoice documents for their businesses" ON storage.objects;
 CREATE POLICY "Users can delete invoice documents for their businesses"
 ON storage.objects FOR DELETE
 TO authenticated
