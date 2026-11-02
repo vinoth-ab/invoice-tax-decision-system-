@@ -45,7 +45,12 @@ export default function AnomaliesPage() {
   const [activeAlert, setActiveAlert] = useState<AnomalyAlert | null>(null);
 
   const loadData = async () => {
-    if (!selectedBusiness) return;
+    if (!selectedBusiness) {
+      setAlerts([]);
+      setInvoices([]);
+      setIsLoading(false);
+      return;
+    }
     setIsLoading(true);
     try {
       const [alertList, invList] = await Promise.all([

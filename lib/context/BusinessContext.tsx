@@ -18,26 +18,6 @@ interface BusinessContextType {
 
 const BusinessContext = createContext<BusinessContextType | undefined>(undefined);
 
-// Standalone fallback demo business if database has not yet been seeded
-export const FALLBACK_DEMO_BUSINESS: Business = {
-  id: 'b0000000-0000-0000-0000-000000000001',
-  owner_id: null,
-  business_name: 'DemoTech Solutions Private Limited',
-  business_type: 'Private Limited Company',
-  industry: 'Information Technology',
-  address: 'Module 102, TIDEL Park, 4 Rajiv Gandhi Salai, Taramani',
-  district: 'Chennai',
-  state: 'Tamil Nadu',
-  financial_year: '2024-2025',
-  gst_registered: true,
-  gstin: '33AABCD1234E1Z5',
-  startup_recognized: true,
-  annual_turnover: 45000000.00,
-  is_demo: true,
-  created_at: '2024-04-01T09:00:00Z',
-  updated_at: '2024-04-01T09:00:00Z',
-};
-
 export function BusinessProvider({ children }: { children: React.ReactNode }) {
   const [supabase] = useState(() => createClient());
   const [user, setUser] = useState<any | null>(null);
@@ -53,13 +33,12 @@ export function BusinessProvider({ children }: { children: React.ReactNode }) {
       const { data, error } = await supabase
         .from('businesses')
         .select('*')
-        .order('is_demo', { ascending: false })
         .order('created_at', { ascending: false });
 
       if (error) {
-        console.warn('Error fetching businesses from Supabase (falling back to demo):', error.message);
-        setBusinesses([FALLBACK_DEMO_BUSINESS]);
-        setSelectedBusiness(FALLBACK_DEMO_BUSINESS);
+        console.warn('Error fetching businesses from Supabase:', error.message);
+        setBusinesses([]);
+        setSelectedBusiness(null);
       } else if (data && data.length > 0) {
         setBusinesses(data);
         // Persist previous selection if available
@@ -67,14 +46,13 @@ export function BusinessProvider({ children }: { children: React.ReactNode }) {
         const matched = data.find((b) => b.id === savedId) || data[0];
         setSelectedBusiness(matched);
       } else {
-        // Fallback to sample demo business
-        setBusinesses([FALLBACK_DEMO_BUSINESS]);
-        setSelectedBusiness(FALLBACK_DEMO_BUSINESS);
+        setBusinesses([]);
+        setSelectedBusiness(null);
       }
     } catch (err) {
       console.error('Unexpected error fetching businesses:', err);
-      setBusinesses([FALLBACK_DEMO_BUSINESS]);
-      setSelectedBusiness(FALLBACK_DEMO_BUSINESS);
+      setBusinesses([]);
+      setSelectedBusiness(null);
     } finally {
       setIsLoading(false);
     }

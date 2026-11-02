@@ -115,72 +115,91 @@ export default function BusinessesPage() {
         </div>
 
         {/* Business Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {businesses.map((b) => {
-            const isSelected = selectedBusiness?.id === b.id;
+        {businesses.length === 0 ? (
+          <Card className="p-8 text-center max-w-md mx-auto my-6 border-dashed border-2">
+            <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <Building2 className="w-6 h-6" />
+            </div>
+            <h3 className="text-base font-bold text-slate-900 mb-1">No Business Registered</h3>
+            <p className="text-xs text-slate-500 mb-4">
+              All sample records have been removed. Register your company or firm to begin managing invoices, GST filing, and tax schemes.
+            </p>
+            <Button
+              size="sm"
+              icon={<Plus className="w-3.5 h-3.5" />}
+              onClick={() => setIsAddModalOpen(true)}
+            >
+              Add Your Business
+            </Button>
+          </Card>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {businesses.map((b) => {
+              const isSelected = selectedBusiness?.id === b.id;
 
-            return (
-              <Card
-                key={b.id}
-                className={`transition-all border-2 ${
-                  isSelected ? 'border-blue-600 shadow-md ring-2 ring-blue-500/20' : 'border-slate-200 hover:border-slate-300'
-                }`}
-              >
-                <div className="p-5 space-y-4">
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <h3 className="font-bold text-base text-slate-900">{b.business_name}</h3>
-                      <p className="text-xs text-slate-500">{b.business_type}</p>
+              return (
+                <Card
+                  key={b.id}
+                  className={`transition-all border-2 ${
+                    isSelected ? 'border-blue-600 shadow-md ring-2 ring-blue-500/20' : 'border-slate-200 hover:border-slate-300'
+                  }`}
+                >
+                  <div className="p-5 space-y-4">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <h3 className="font-bold text-base text-slate-900">{b.business_name}</h3>
+                        <p className="text-xs text-slate-500">{b.business_type}</p>
+                      </div>
+                      {b.is_demo ? (
+                        <Badge variant="warning">Demo Entity</Badge>
+                      ) : (
+                        <Badge variant="success">Your Business</Badge>
+                      )}
                     </div>
-                    {b.is_demo ? (
-                      <Badge variant="warning">Demo Entity</Badge>
-                    ) : (
-                      <Badge variant="success">Your Business</Badge>
-                    )}
-                  </div>
 
-                  <div className="space-y-1.5 text-xs text-slate-600">
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                      <span className="truncate">{b.district ? `${b.district}, ` : ''}{b.state}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <FileText className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                      <span>FY {b.financial_year} • Industry: {b.industry}</span>
-                    </div>
-                    {b.gstin ? (
-                      <p className="font-mono text-[11px] text-slate-700 pt-1">
-                        GSTIN: <strong>{b.gstin}</strong>
+                    <div className="space-y-1.5 text-xs text-slate-600">
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                        <span className="truncate">{b.district ? `${b.district}, ` : ''}{b.state}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <FileText className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                        <span>FY {b.financial_year} • Industry: {b.industry}</span>
+                      </div>
+                      {b.gstin ? (
+                        <p className="font-mono text-[11px] text-slate-700 pt-1">
+                          GSTIN: <strong>{b.gstin}</strong>
+                        </p>
+                      ) : (
+                        <p className="text-[11px] text-slate-400 italic pt-1">Not GST Registered</p>
+                      )}
+                      <p className="text-xs text-slate-700">
+                        Annual Turnover: <strong>{formatINR(b.annual_turnover)}</strong>
                       </p>
-                    ) : (
-                      <p className="text-[11px] text-slate-400 italic pt-1">Not GST Registered</p>
-                    )}
-                    <p className="text-xs text-slate-700">
-                      Annual Turnover: <strong>{formatINR(b.annual_turnover)}</strong>
-                    </p>
-                  </div>
+                    </div>
 
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                    {isSelected ? (
-                      <span className="text-xs font-semibold text-blue-600 flex items-center gap-1.5">
-                        <CheckCircle className="w-4 h-4" /> Active Workspace
-                      </span>
-                    ) : (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => setSelectedBusinessId(b.id)}
-                        className="text-xs"
-                      >
-                        Switch to this Business
-                      </Button>
-                    )}
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                      {isSelected ? (
+                        <span className="text-xs font-semibold text-blue-600 flex items-center gap-1.5">
+                          <CheckCircle className="w-4 h-4" /> Active Workspace
+                        </span>
+                      ) : (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => setSelectedBusinessId(b.id)}
+                          className="text-xs"
+                        >
+                          Switch to this Business
+                        </Button>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </Card>
-            );
-          })}
-        </div>
+                </Card>
+              );
+            })}
+          </div>
+        )}
 
         {/* Add Business Modal */}
         <Modal

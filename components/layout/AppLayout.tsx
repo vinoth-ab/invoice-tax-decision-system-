@@ -132,14 +132,28 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               onChange={(e) => setSelectedBusinessId(e.target.value)}
               className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 font-medium focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none pr-7 cursor-pointer"
             >
-              {businesses.map((b) => (
-                <option key={b.id} value={b.id}>
-                  {b.business_name} {b.is_demo ? '(Demo)' : ''}
-                </option>
-              ))}
+              {businesses.length === 0 ? (
+                <option value="">No businesses registered</option>
+              ) : (
+                businesses.map((b) => (
+                  <option key={b.id} value={b.id}>
+                    {b.business_name} {b.is_demo ? '(Demo)' : ''}
+                  </option>
+                ))
+              )}
             </select>
             <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
+
+          {businesses.length === 0 && (
+            <Link
+              href="/businesses"
+              className="mt-2 flex items-center justify-center gap-1.5 text-[11px] text-blue-400 bg-blue-950/40 border border-blue-800/50 rounded px-2 py-1.5 hover:bg-blue-900/50 transition-colors"
+            >
+              <PlusCircle className="w-3.5 h-3.5 shrink-0" />
+              <span>Register Business</span>
+            </Link>
+          )}
 
           {isDemoActive && (
             <div className="mt-2 flex items-center gap-1.5 text-[11px] text-amber-400 bg-amber-950/30 border border-amber-800/50 rounded px-2 py-1">

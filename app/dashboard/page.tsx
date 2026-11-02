@@ -54,7 +54,12 @@ export default function DashboardPage() {
 
   useEffect(() => {
     async function loadData() {
-      if (!selectedBusiness) return;
+      if (!selectedBusiness) {
+        setInvoices([]);
+        setAnomalies([]);
+        setIsLoading(false);
+        return;
+      }
       setIsLoading(true);
       try {
         const [invData, anomalyData] = await Promise.all([
@@ -130,6 +135,23 @@ export default function DashboardPage() {
   return (
     <AppLayout>
       <div className="space-y-6">
+        {!selectedBusiness && (
+          <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+            <div>
+              <p className="font-semibold text-sm text-blue-950">No Business Registered</p>
+              <p className="text-xs text-blue-700 mt-0.5">
+                All sample records have been removed. Add or select your real business workspace to start generating invoices and analytics.
+              </p>
+            </div>
+            <Link
+              href="/businesses"
+              className="px-3.5 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700 transition-colors shrink-0 text-center"
+            >
+              Add Business
+            </Link>
+          </div>
+        )}
+
         {/* Top Header & Date Filter Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
@@ -138,7 +160,7 @@ export default function DashboardPage() {
               {isDemoActive && <Badge variant="warning">Sample Data</Badge>}
             </div>
             <p className="text-xs text-slate-500 mt-1">
-              Real-time analytics for {selectedBusiness?.business_name || 'Business'} • FY {selectedBusiness?.financial_year || '2024-2025'}
+              Real-time analytics for {selectedBusiness?.business_name || 'No Business Selected'} • FY {selectedBusiness?.financial_year || '2024-2025'}
             </p>
           </div>
 

@@ -47,7 +47,11 @@ export default function InvoicesPage() {
   const [isRecordingPayment, setIsRecordingPayment] = useState<boolean>(false);
 
   const loadInvoices = async () => {
-    if (!selectedBusiness) return;
+    if (!selectedBusiness) {
+      setInvoices([]);
+      setIsLoading(false);
+      return;
+    }
     setIsLoading(true);
     try {
       const data = await fetchInvoices(selectedBusiness.id);

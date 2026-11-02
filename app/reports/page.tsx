@@ -43,7 +43,12 @@ export default function ReportsPage() {
 
   useEffect(() => {
     async function load() {
-      if (!selectedBusiness) return;
+      if (!selectedBusiness) {
+        setInvoices([]);
+        setAnomalies([]);
+        setIsLoading(false);
+        return;
+      }
       setIsLoading(true);
       try {
         const [invData, aData] = await Promise.all([

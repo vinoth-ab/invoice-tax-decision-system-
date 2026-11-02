@@ -127,7 +127,7 @@ export default function LoginPage() {
             className="w-full text-slate-700 hover:bg-slate-50"
             onClick={handleGuestDemo}
           >
-            Explore as Demo Guest (DemoTech Solutions)
+            Explore as Guest
           </Button>
 
           <div className="text-center text-xs text-slate-500">

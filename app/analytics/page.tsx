@@ -49,7 +49,11 @@ export default function AnalyticsPage() {
 
   useEffect(() => {
     async function loadData() {
-      if (!selectedBusiness) return;
+      if (!selectedBusiness) {
+        setInvoices([]);
+        setIsLoading(false);
+        return;
+      }
       setIsLoading(true);
       try {
         const invList = await fetchInvoices(selectedBusiness.id);

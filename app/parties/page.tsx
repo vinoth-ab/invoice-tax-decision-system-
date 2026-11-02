@@ -40,7 +40,11 @@ export default function PartiesPage() {
   const [gstin, setGstin] = useState('');
 
   const loadParties = async () => {
-    if (!selectedBusiness) return;
+    if (!selectedBusiness) {
+      setParties([]);
+      setIsLoading(false);
+      return;
+    }
     setIsLoading(true);
     try {
       const data = await fetchParties(selectedBusiness.id);

@@ -15,9 +15,9 @@ import {
 } from './sample-dataset';
 
 // In-memory cache for dynamic additions during the session
-let localInvoices: Invoice[] = [...SAMPLE_INVOICES];
-let localParties: Party[] = [...SAMPLE_PARTIES];
-let localAnomalies: AnomalyAlert[] = [...SAMPLE_ANOMALIES];
+let localInvoices: Invoice[] = [];
+let localParties: Party[] = [];
+let localAnomalies: AnomalyAlert[] = [];
 
 export async function fetchInvoices(businessId: string): Promise<Invoice[]> {
   const supabase = createClient();
@@ -28,15 +28,15 @@ export async function fetchInvoices(businessId: string): Promise<Invoice[]> {
       .eq('business_id', businessId)
       .order('invoice_date', { ascending: false });
 
-    if (!error && data && data.length > 0) {
+    if (!error && data) {
       return data as Invoice[];
     }
   } catch (err) {
-    console.warn('Supabase fetch failed, utilizing sample repository data:', err);
+    console.warn('Supabase invoice fetch error:', err);
   }
 
-  // Fallback to sample/local dataset if database query returns empty or errors
-  return localInvoices.filter((inv) => inv.business_id === businessId || businessId === SAMPLE_BUSINESS.id);
+  // Fallback to local session data
+  return localInvoices.filter((inv) => inv.business_id === businessId);
 }
 
 export async function fetchParties(businessId: string): Promise<Party[]> {
@@ -48,14 +48,14 @@ export async function fetchParties(businessId: string): Promise<Party[]> {
       .eq('business_id', businessId)
       .order('party_name', { ascending: true });
 
-    if (!error && data && data.length > 0) {
+    if (!error && data) {
       return data as Party[];
     }
   } catch (err) {
-    console.warn('Parties fetch error, using sample data:', err);
+    console.warn('Parties fetch error:', err);
   }
 
-  return localParties.filter((p) => p.business_id === businessId || businessId === SAMPLE_BUSINESS.id);
+  return localParties.filter((p) => p.business_id === businessId);
 }
 
 export async function fetchTaxSchemes(): Promise<TaxScheme[]> {
@@ -71,7 +71,7 @@ export async function fetchTaxSchemes(): Promise<TaxScheme[]> {
       return data as TaxScheme[];
     }
   } catch (err) {
-    console.warn('Tax schemes fetch error, using verified reference catalog:', err);
+    console.warn('Tax schemes fetch error, using statutory reference catalog:', err);
   }
 
   return SAMPLE_SCHEMES;
@@ -86,14 +86,14 @@ export async function fetchAnomalyAlerts(businessId: string): Promise<AnomalyAle
       .eq('business_id', businessId)
       .order('created_at', { ascending: false });
 
-    if (!error && data && data.length > 0) {
+    if (!error && data) {
       return data as AnomalyAlert[];
     }
   } catch (err) {
-    console.warn('Anomalies fetch error, using sample flags:', err);
+    console.warn('Anomalies fetch error:', err);
   }
 
-  return localAnomalies.filter((a) => a.business_id === businessId || businessId === SAMPLE_BUSINESS.id);
+  return localAnomalies.filter((a) => a.business_id === businessId);
 }
 
 export async function saveInvoice(invoiceData: Partial<Invoice>, items: any[]): Promise<{ success: boolean; data?: Invoice; error?: string }> {
@@ -104,7 +104,7 @@ export async function saveInvoice(invoiceData: Partial<Invoice>, items: any[]): 
   const newInvoice: Invoice = {
     ...invoiceData,
     id,
-    business_id: invoiceData.business_id || SAMPLE_BUSINESS.id,
+    business_id: invoiceData.business_id || '',
     party_id: invoiceData.party_id || null,
     invoice_number: invoiceData.invoice_number || `INV-${Date.now()}`,
     invoice_type: invoiceData.invoice_type || 'sales',
@@ -191,7 +191,7 @@ export async function saveParty(partyData: Partial<Party>): Promise<{ success: b
   const newParty: Party = {
     ...partyData,
     id,
-    business_id: partyData.business_id || SAMPLE_BUSINESS.id,
+    business_id: partyData.business_id || '',
     party_name: partyData.party_name || 'New Party',
     party_type: partyData.party_type || 'customer',
     email: partyData.email || null,

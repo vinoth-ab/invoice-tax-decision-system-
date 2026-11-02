@@ -144,6 +144,10 @@ export default function NewInvoicePage() {
 
   const handleSaveInvoice = async (status: PaymentStatus) => {
     setErrorMsg(null);
+    if (!selectedBusiness?.id) {
+      setErrorMsg('Please register and select an active business first.');
+      return;
+    }
     if (!invoiceNumber.trim()) {
       setErrorMsg('Invoice number is required.');
       return;
