@@ -13,17 +13,17 @@ export async function runApiSeed() {
   // 1. Demo Business
   const business = {
     id: 'b0000000-0000-0000-0000-000000000001',
-    business_name: 'DemoTech Solutions Private Limited',
-    business_type: 'Private Limited Company',
-    industry: 'Information Technology',
-    address: 'Module 102, TIDEL Park, 4 Rajiv Gandhi Salai, Taramani',
-    district: 'Chennai',
+    business_name: 'Kaveri Retail & Tech Enterprises',
+    business_type: 'Proprietorship',
+    industry: 'Retail & IT Services',
+    address: 'Shop 14, Cross Cut Road, Gandhipuram',
+    district: 'Coimbatore',
     state: 'Tamil Nadu',
     financial_year: '2024-2025',
     gst_registered: true,
-    gstin: '33AABCD1234E1Z5',
-    startup_recognized: true,
-    annual_turnover: 45000000.00,
+    gstin: '33AABCS1234M1Z5',
+    startup_recognized: false,
+    annual_turnover: 2000000.00,
     is_demo: true,
   };
 
@@ -52,25 +52,9 @@ export async function runApiSeed() {
   if (pError) console.error('Error inserting parties:', pError.message);
   else console.log(`✓ ${parties.length} parties upserted`);
 
-  // 3. Tax Schemes
+  // 3. Tax Schemes (Section 80-IAC deleted)
+  await supabase.from('tax_schemes').delete().eq('scheme_code', 'SEC_80IAC');
   const schemes = [
-    {
-      id: 'd0000000-0000-0000-0000-000000000001',
-      scheme_code: 'SEC_80IAC',
-      scheme_name: 'Section 80-IAC Tax Holiday for Eligible Startups',
-      administering_authority: 'DPIIT & CBDT',
-      category: 'tax_deduction',
-      description: 'Deduction of 100% of profits and gains derived by an eligible startup from an eligible business for 3 consecutive assessment years out of 10 years.',
-      applicable_business_types: ['Private Limited Company', 'LLP'],
-      eligibility_criteria: { turnover_limit: 100000000, incorporation_after: '2016-04-01', incorporation_before: '2025-03-31', dpiit_recognition_required: true, inter_ministerial_board_cert_required: true },
-      benefit_description: '100% profit deduction from taxable income for 3 consecutive years out of 10 years.',
-      tax_regime: 'Old Tax Regime / Section 115BAA constraints apply',
-      official_source_url: 'https://incometaxindia.gov.in/Pages/acts/income-tax-act.aspx',
-      official_source_title: 'Income Tax Act 1961 - Section 80-IAC Statutory Provision',
-      verification_status: 'verified',
-      is_active: true,
-      is_sample: true
-    },
     {
       id: 'd0000000-0000-0000-0000-000000000002',
       scheme_code: 'SEC_44AD',

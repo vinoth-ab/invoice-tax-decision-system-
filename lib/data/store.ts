@@ -15,9 +15,9 @@ import {
 } from './sample-dataset';
 
 // In-memory cache for dynamic additions during the session
-let localInvoices: Invoice[] = [];
-let localParties: Party[] = [];
-let localAnomalies: AnomalyAlert[] = [];
+let localInvoices: Invoice[] = [...SAMPLE_INVOICES];
+let localParties: Party[] = [...SAMPLE_PARTIES];
+let localAnomalies: AnomalyAlert[] = [...SAMPLE_ANOMALIES];
 
 export async function fetchInvoices(businessId: string): Promise<Invoice[]> {
   const supabase = createClient();
@@ -28,7 +28,7 @@ export async function fetchInvoices(businessId: string): Promise<Invoice[]> {
       .eq('business_id', businessId)
       .order('invoice_date', { ascending: false });
 
-    if (!error && data) {
+    if (!error && data && data.length > 0) {
       return data as Invoice[];
     }
   } catch (err) {
@@ -36,7 +36,7 @@ export async function fetchInvoices(businessId: string): Promise<Invoice[]> {
   }
 
   // Fallback to local session data
-  return localInvoices.filter((inv) => inv.business_id === businessId);
+  return localInvoices.filter((inv) => inv.business_id === businessId || businessId === SAMPLE_BUSINESS.id);
 }
 
 export async function fetchParties(businessId: string): Promise<Party[]> {
@@ -48,14 +48,14 @@ export async function fetchParties(businessId: string): Promise<Party[]> {
       .eq('business_id', businessId)
       .order('party_name', { ascending: true });
 
-    if (!error && data) {
+    if (!error && data && data.length > 0) {
       return data as Party[];
     }
   } catch (err) {
     console.warn('Parties fetch error:', err);
   }
 
-  return localParties.filter((p) => p.business_id === businessId);
+  return localParties.filter((p) => p.business_id === businessId || businessId === SAMPLE_BUSINESS.id);
 }
 
 export async function fetchTaxSchemes(): Promise<TaxScheme[]> {
@@ -68,13 +68,13 @@ export async function fetchTaxSchemes(): Promise<TaxScheme[]> {
       .order('scheme_code', { ascending: true });
 
     if (!error && data && data.length > 0) {
-      return data as TaxScheme[];
+      return data.filter((s: TaxScheme) => s.scheme_code !== 'SEC_80IAC') as TaxScheme[];
     }
   } catch (err) {
     console.warn('Tax schemes fetch error, using statutory reference catalog:', err);
   }
 
-  return SAMPLE_SCHEMES;
+  return SAMPLE_SCHEMES.filter((s) => s.scheme_code !== 'SEC_80IAC');
 }
 
 export async function fetchAnomalyAlerts(businessId: string): Promise<AnomalyAlert[]> {
@@ -86,14 +86,14 @@ export async function fetchAnomalyAlerts(businessId: string): Promise<AnomalyAle
       .eq('business_id', businessId)
       .order('created_at', { ascending: false });
 
-    if (!error && data) {
+    if (!error && data && data.length > 0) {
       return data as AnomalyAlert[];
     }
   } catch (err) {
     console.warn('Anomalies fetch error:', err);
   }
 
-  return localAnomalies.filter((a) => a.business_id === businessId);
+  return localAnomalies.filter((a) => a.business_id === businessId || businessId === SAMPLE_BUSINESS.id);
 }
 
 export async function saveInvoice(invoiceData: Partial<Invoice>, items: any[]): Promise<{ success: boolean; data?: Invoice; error?: string }> {

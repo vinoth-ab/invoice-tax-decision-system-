@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { Business } from '@/types/database';
+import { SAMPLE_BUSINESS } from '@/lib/data/sample-dataset';
 import { useRouter } from 'next/navigation';
 
 interface BusinessContextType {
@@ -36,9 +37,9 @@ export function BusinessProvider({ children }: { children: React.ReactNode }) {
         .order('created_at', { ascending: false });
 
       if (error) {
-        console.warn('Error fetching businesses from Supabase:', error.message);
-        setBusinesses([]);
-        setSelectedBusiness(null);
+        console.warn('Error fetching businesses from Supabase (falling back to ₹20L demo):', error.message);
+        setBusinesses([SAMPLE_BUSINESS]);
+        setSelectedBusiness(SAMPLE_BUSINESS);
       } else if (data && data.length > 0) {
         setBusinesses(data);
         // Persist previous selection if available
@@ -46,13 +47,13 @@ export function BusinessProvider({ children }: { children: React.ReactNode }) {
         const matched = data.find((b) => b.id === savedId) || data[0];
         setSelectedBusiness(matched);
       } else {
-        setBusinesses([]);
-        setSelectedBusiness(null);
+        setBusinesses([SAMPLE_BUSINESS]);
+        setSelectedBusiness(SAMPLE_BUSINESS);
       }
     } catch (err) {
       console.error('Unexpected error fetching businesses:', err);
-      setBusinesses([]);
-      setSelectedBusiness(null);
+      setBusinesses([SAMPLE_BUSINESS]);
+      setSelectedBusiness(SAMPLE_BUSINESS);
     } finally {
       setIsLoading(false);
     }

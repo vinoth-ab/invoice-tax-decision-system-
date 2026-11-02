@@ -27,23 +27,24 @@ INSERT INTO public.businesses (
 ) VALUES (
     'b0000000-0000-0000-0000-000000000001',
     NULL,
-    'DemoTech Solutions Private Limited',
-    'Private Limited Company',
-    'Information Technology',
-    'Module 102, TIDEL Park, 4 Rajiv Gandhi Salai, Taramani',
-    'Chennai',
+    'Kaveri Retail & Tech Enterprises',
+    'Proprietorship',
+    'Retail & IT Services',
+    'Shop 14, Cross Cut Road, Gandhipuram',
+    'Coimbatore',
     'Tamil Nadu',
     '2024-2025',
     true,
-    '33AABCD1234E1Z5',
-    true,
-    45000000.00,
+    '33AABCS1234M1Z5',
+    false,
+    2000000.00,
     true,
     '2024-04-01 09:00:00+05:30',
     '2024-04-01 09:00:00+05:30'
 )
 ON CONFLICT (id) DO UPDATE SET
     business_name = EXCLUDED.business_name,
+    business_type = EXCLUDED.business_type,
     annual_turnover = EXCLUDED.annual_turnover,
     gst_registered = EXCLUDED.gst_registered,
     startup_recognized = EXCLUDED.startup_recognized,
@@ -73,34 +74,17 @@ ON CONFLICT (id) DO UPDATE SET
     is_sample = true;
 
 -- ------------------------------------------------------------------------------
--- 3. TAX SCHEMES (10 Verified Statutory References & Support Schemes)
+-- 3. TAX SCHEMES (Statutory References & Support Schemes)
+-- Note: Section 80-IAC has been removed.
 -- ------------------------------------------------------------------------------
+DELETE FROM public.tax_schemes WHERE scheme_code = 'SEC_80IAC';
+
 INSERT INTO public.tax_schemes (
     id, scheme_code, scheme_name, administering_authority, category, description,
     applicable_business_types, eligibility_criteria, benefit_description, tax_regime,
     effective_from, effective_to, official_source_url, official_source_title,
     last_verified_at, verification_status, is_active, is_sample
 ) VALUES
-(
-    'd0000000-0000-0000-0000-000000000001',
-    'SEC_80IAC',
-    'Section 80-IAC Tax Holiday for Eligible Startups',
-    'Department for Promotion of Industry and Internal Trade (DPIIT) & CBDT',
-    'tax_deduction',
-    'Deduction of 100% of profits and gains derived by an eligible startup from an eligible business for 3 consecutive assessment years out of 10 years.',
-    '["Private Limited Company", "LLP"]'::jsonb,
-    '{"turnover_limit": 100000000, "incorporation_after": "2016-04-01", "incorporation_before": "2025-03-31", "dpiit_recognition_required": true, "inter_ministerial_board_cert_required": true}'::jsonb,
-    '100% profit deduction from taxable income for 3 consecutive years out of 10 years from incorporation.',
-    'Old Tax Regime / Section 115BAA choice constraints apply',
-    '2016-04-01',
-    '2025-03-31',
-    'https://incometaxindia.gov.in/Pages/acts/income-tax-act.aspx',
-    'Income Tax Act 1961 - Section 80-IAC Statutory Provision',
-    '2024-10-01 00:00:00+05:30',
-    'verified',
-    true,
-    true
-),
 (
     'd0000000-0000-0000-0000-000000000002',
     'SEC_44AD',
